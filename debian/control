@@ -1,0 +1,19 @@
+Source: php-horde-nag
+Section: php
+Priority: extra
+Maintainer: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
+Uploaders: Mathieu Parent <sathieu@debian.org>
+Build-Depends: debhelper (>= 8.0.0), pkg-php-tools, pear-horde-channel
+Standards-Version: 3.9.2
+Homepage: http://horde.org/
+Vcs-Git: git://anonscm.debian.org/pkg-horde/horde4/php-horde-nag.git
+Vcs-Browser: http://anonscm.debian.org/git/pkg-horde/horde4/php-horde-nag.git
+
+Package: php-horde-nag
+Architecture: all
+Provides: nag
+Depends: ${misc:Depends}, ${phppear:Debian-Depends}
+Recommends: ${phppear:Debian-Recommends}
+Breaks: ${phppear:Debian-Breaks}
+Description: ${phppear:summary}
+ ${phppear:description}
