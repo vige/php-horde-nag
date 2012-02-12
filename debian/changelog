@@ -1,7 +1,7 @@
 php-horde-nag (3.0.7-1) unstable; urgency=low
 
   * nag package
-  * Initial packaging (Closes: #nnnnnn)
+  * Initial packaging (Closes: #657380)
   * Copyright file by Soren Stoutner and Jay Barksdale
 
- -- Mathieu Parent <sathieu@debian.org>  Sat, 11 Feb 2012 15:09:19 +0100
+ -- Mathieu Parent <sathieu@debian.org>  Sun, 12 Feb 2012 15:03:26 +0100
