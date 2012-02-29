@@ -1,4 +1,4 @@
-Format: http://dep.debian.net/deps/dep5/
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Nag: A web based task list manager
 Upstream-Contact: Horde <horde@lists.horde.org>
 		  Horde development <dev@lists.horde.org>
