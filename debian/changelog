@@ -1,13 +1,7 @@
-php-horde-nag (3.0.7-2) UNRELEASED; urgency=low
-
-  * Fixed watchfile
-
- -- Mathieu Parent <sathieu@debian.org>  Wed, 29 Feb 2012 18:37:29 +0100
-
 php-horde-nag (3.0.7-1) unstable; urgency=low
 
   * nag package
   * Initial packaging (Closes: #657380)
   * Copyright file by Soren Stoutner and Jay Barksdale
 
- -- Mathieu Parent <sathieu@debian.org>  Sun, 12 Feb 2012 15:03:26 +0100
+ -- Mathieu Parent <sathieu@debian.org>  Wed, 29 Feb 2012 18:53:24 +0100
