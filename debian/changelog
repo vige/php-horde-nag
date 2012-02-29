@@ -1,3 +1,9 @@
+php-horde-nag (3.0.7-2) UNRELEASED; urgency=low
+
+  * Fixed watchfile
+
+ -- Mathieu Parent <sathieu@debian.org>  Wed, 29 Feb 2012 18:37:29 +0100
+
 php-horde-nag (3.0.7-1) unstable; urgency=low
 
   * nag package
