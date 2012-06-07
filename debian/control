@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 8.0.0), pkg-php-tools, pear-horde-channel, php-hord
 Standards-Version: 3.9.3
 Homepage: http://horde.org/
 Vcs-Git: git://anonscm.debian.org/pkg-horde/horde4/php-horde-nag.git
-Vcs-Browser: http://anonscm.debian.org/git/pkg-horde/horde4/php-horde-nag.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-horde/horde4/php-horde-nag.git
 
 Package: php-horde-nag
 Architecture: all
