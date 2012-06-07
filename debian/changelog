@@ -5,5 +5,7 @@ php-horde-nag (3.0.7-1) unstable; urgency=low
   * Copyright file by Soren Stoutner and Jay Barksdale
   * Updated debian/pearrc to install Horde apps in /usr/share/horde
     instead of /usr/share/horde4
+  * Updated d/rules to install apps in /usr/share/horde and config in
+    /etc/horde
 
- -- Mathieu Parent <sathieu@debian.org>  Thu, 07 Jun 2012 15:14:13 +0200
+ -- Mathieu Parent <sathieu@debian.org>  Thu, 07 Jun 2012 17:07:47 +0200
