@@ -26,7 +26,7 @@ License: GPL-2
  License version 2 can be found in the file
  `/usr/share/common-licenses/GPL-2'.
  
-Files: nag-*/lib/View/List.php, nag-*/lib/Search.php
+Files: nag-*/lib/View/List.php nag-*/lib/Search.php
 Copyright: 2001-2011 Horde LLC (http://www.horde.org)
 License: BSD-2-Clause
  Redistribution and use in source and binary forms, with or without

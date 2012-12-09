@@ -4,4 +4,4 @@ php-horde-nag (4.0.1-1) unstable; urgency=low
   * Initial packaging (Closes: #657380)
   * Copyright file by Soren Stoutner and Jay Barksdale
 
- -- Mathieu Parent <sathieu@debian.org>  Sun, 09 Dec 2012 11:50:17 +0100
+ -- Mathieu Parent <sathieu@debian.org>  Sun, 09 Dec 2012 11:52:11 +0100
