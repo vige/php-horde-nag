@@ -2,6 +2,7 @@ php-horde-nag (4.0.1-2) UNRELEASED; urgency=low
 
   * Add a description of Horde in long description
   * Updated Standards-Version to 3.9.4, no changes
+  * Replace horde4 by PEAR in git reporitory path
 
  -- Mathieu Parent <sathieu@debian.org>  Sun, 06 Jan 2013 21:45:48 +0100
 
