@@ -1,8 +1,9 @@
-php-horde-nag (4.0.2-2) UNRELEASED; urgency=low
+php-horde-nag (4.1.0-1) UNRELEASED; urgency=low
 
   * Use pristine-tar
+  * New upstream version 4.1.0
 
- -- Mathieu Parent <sathieu@debian.org>  Mon, 27 May 2013 08:46:55 +0200
+ -- Mathieu Parent <sathieu@debian.org>  Wed, 05 Jun 2013 13:29:31 +0200
 
 php-horde-nag (4.0.2-1) unstable; urgency=low
 
