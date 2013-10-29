@@ -22,10 +22,10 @@
   <email>mrubinsk@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2013-08-27</date>
- <time>15:52:20</time>
+ <date>2013-10-29</date>
+ <time>17:48:55</time>
  <version>
-  <release>4.1.2</release>
+  <release>4.1.3</release>
   <api>4.1.0</api>
  </version>
  <stability>
@@ -34,9 +34,9 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [jan] Fix highlighting task type tabs in list view.
-* [jan] Fix fatal errors if DAV support is disabled (Bug #12481).
-* [mjr] Fix requesting changes by modification sequence (Bug #12507, Thomas Jarosch &lt;thomas.jarosch@intra2net.com&gt;).
+* [jan] SECURITY: Fix XSS vulnerabilities when deleting task lists.
+* [jan] Fix updating alarm if completing a task recurrence.
+* [jan] Fix editing tasks via CalDAV (Bug #12745).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -61,11 +61,11 @@
    <file baseinstalldir="/" md5sum="8dd63a3f7ce37b9460ea705581147bf9" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="fafc06dcc4243d93fa04f2ed1d3a94bd" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="e72b7ce21f0f11602c603a9721569e8c" name="docs/CHANGES" role="doc" />
    <file baseinstalldir="/" md5sum="5e9948d14717eeedb040ea1fed4d78ed" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="474233a12ff7cd754a81de27d158fc37" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="9069481b2a1bfc79c1a53eb4c1f2a60d" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="f04036d92e752b444d9c9f1b637e53e9" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="a2c30ff49bae06688f9b1bd86895267b" name="js/calendar.js" role="horde" />
@@ -88,7 +88,7 @@
    <file baseinstalldir="/" md5sum="2e96474f211b733d3a5647f6ddd4a917" name="lib/Form/Type/NagStart.php" role="horde" />
    <file baseinstalldir="/" md5sum="95b9d6e405a8fe40dae43c6006564db9" name="lib/Form/Type/NagTags.php" role="horde" />
    <file baseinstalldir="/" md5sum="fced46358de59d46154faadada1cb824" name="lib/Form/CreateTaskList.php" role="horde" />
-   <file baseinstalldir="/" md5sum="421a2ada7f9df9342023e19bcaebe667" name="lib/Form/DeleteTaskList.php" role="horde" />
+   <file baseinstalldir="/" md5sum="ecde3da3fa16e2c983f385c34d5a42e3" name="lib/Form/DeleteTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="30263510910b053db414f571d5f648d1" name="lib/Form/EditTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="f93dcc05120f2dd529bf886d6306e662" name="lib/Form/Search.php" role="horde" />
    <file baseinstalldir="/" md5sum="1c75a1829ec841536a50a40f63503128" name="lib/Form/Task.php" role="horde" />
@@ -101,10 +101,10 @@
    <file baseinstalldir="/" md5sum="8ea9552d90899e616663f9f6d81b84f1" name="lib/View/Helper/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="a9db04b8fbb3993da6c07063ed27cd55" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="lib/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="c9532386a77e4474b80c9517cc48ecb8" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="940050f7415dc040138adf49c6f42b46" name="lib/Application.php" role="horde" />
-   <file baseinstalldir="/" md5sum="75ca064fc15a8c825577e6ef7e781184" name="lib/CompleteTask.php" role="horde" />
-   <file baseinstalldir="/" md5sum="54af6a1b1d1b74007035dc5703b9c942" name="lib/Driver.php" role="horde" />
+   <file baseinstalldir="/" md5sum="cb908cef449ab9f5ef2074f7314b12f6" name="lib/Api.php" role="horde" />
+   <file baseinstalldir="/" md5sum="069429d80f5002e50a10ab032c16d73f" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="eeaa07177c84ac42b3595b493f0b981a" name="lib/CompleteTask.php" role="horde" />
+   <file baseinstalldir="/" md5sum="b25a71a820a39fb8d313bfcf04dab16f" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="6f29bf8a5732525c5d5be8516a797261" name="lib/Exception.php" role="horde" />
    <file baseinstalldir="/" md5sum="2c230991915751e91b28decac5911514" name="lib/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="5e82052027dc0a6141af7569b72e5fc9" name="lib/QuickParser.php" role="horde" />
@@ -112,7 +112,7 @@
    <file baseinstalldir="/" md5sum="d9b28387460ae8207c1013b744d78c58" name="lib/Smartmobile.php" role="horde" />
    <file baseinstalldir="/" md5sum="50f9d1f05f0ddef5e710be737cd0d95b" name="lib/TagBrowser.php" role="horde" />
    <file baseinstalldir="/" md5sum="20525eb066e386a7e3b0b7dcde3f97ae" name="lib/Tagger.php" role="horde" />
-   <file baseinstalldir="/" md5sum="10eab21edafcdca3602646dc43b67832" name="lib/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="e1f42d661e433541cbf64af5bcff01b6" name="lib/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="66979c4865d79c65e8fb3955e02b9535" name="lib/Tasklist.php" role="horde" />
    <file baseinstalldir="/" md5sum="c73885a7700b81e07af5a99f9fd5f329" name="locale/ar/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="412935d3715fe47c770ef9e7407897bc" name="locale/ar/LC_MESSAGES/nag.po" role="horde" />
@@ -125,8 +125,8 @@
    <file baseinstalldir="/" md5sum="73a7223a020bff9eaf3210e98c812559" name="locale/cs/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="747e711631f9488694d792dc90913ea2" name="locale/da/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="afae680535db74ea14090d116bf823eb" name="locale/da/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="611719e4012231129d77cb914fe5aa2f" name="locale/de/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="f2c512550d6f278284550c2870e6a47c" name="locale/de/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="b13c903316bda5051bfa2d1e1483f189" name="locale/de/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="9f8dd4548a8a13c6f80481af33391670" name="locale/de/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="bc8c563a66689c1b503521fc2d4bc12a" name="locale/de/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="c11bc40fcb1b8319aa8e33101507fd7c" name="locale/el/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="c52be431df8b59ca2ef4b0ed89f30db2" name="locale/el/LC_MESSAGES/nag.po" role="horde" />
@@ -197,7 +197,7 @@
    <file baseinstalldir="/" md5sum="86361e7cba43e5160c6186f80a254997" name="locale/zh_TW/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="07526807c717712cf09fbf7d09b99e17" name="locale/zh_TW/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="locale/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="72a93e8db99d9ff51a17af77977eed9a" name="locale/nag.pot" role="horde" />
+   <file baseinstalldir="/" md5sum="1c041616e57d5ded75fbccda31e66d6c" name="locale/nag.pot" role="horde" />
    <file baseinstalldir="/" md5sum="30c4c770502431e8e8aef87c3918d8bd" name="migration/1_nag_base_tables.php" role="horde" />
    <file baseinstalldir="/" md5sum="5503b341a28d7e1ce527b05b44b4b416" name="migration/2_nag_upgrade_autoincrement.php" role="horde" />
    <file baseinstalldir="/" md5sum="feb60cce376b40fe6fbe79e2fe3996ad" name="migration/3_nag_upgrade_addalarmmethods.php" role="horde" />
@@ -1198,6 +1198,23 @@
 * [jan] Fix highlighting task type tabs in list view.
 * [jan] Fix fatal errors if DAV support is disabled (Bug #12481).
 * [mjr] Fix requesting changes by modification sequence (Bug #12507, Thomas Jarosch &lt;thomas.jarosch@intra2net.com&gt;).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.1.3</release>
+    <api>4.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2013-10-29</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] SECURITY: Fix XSS vulnerabilities when deleting task lists.
+* [jan] Fix updating alarm if completing a task recurrence.
+* [jan] Fix editing tasks via CalDAV (Bug #12745).
    </notes>
   </release>
  </changelog>
