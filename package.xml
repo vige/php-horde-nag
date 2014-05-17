@@ -5,12 +5,6 @@
  <summary>A web based task list manager</summary>
  <description>Nag is a web-based application built upon the Horde Application Framework which provides a simple, clean interface for managing online task lists (i.e., todo lists). It also includes strong integration with the other Horde applications and allows users to share task lists or enable light-weight project management.</description>
  <lead>
-  <name>Chuck Hagenbuch</name>
-  <user>chuck</user>
-  <email>chuck@horde.org</email>
-  <active>yes</active>
- </lead>
- <lead>
   <name>Jan Schneider</name>
   <user>jan</user>
   <email>jan@horde.org</email>
@@ -22,110 +16,125 @@
   <email>mrubinsk@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2014-03-10</date>
- <time>15:48:12</time>
+ <lead>
+  <name>Chuck Hagenbuch</name>
+  <user>chuck</user>
+  <email>chuck@horde.org</email>
+  <active>false</active>
+ </lead>
+ <date>2014-05-06</date>
+ <time>00:15:24</time>
  <version>
-  <release>4.1.4</release>
-  <api>4.1.0</api>
+  <release>4.2.0alpha1</release>
+  <api>4.2.0</api>
  </version>
  <stability>
-  <release>stable</release>
-  <api>stable</api>
+  <release>alpha</release>
+  <api>alpha</api>
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [jan] Update Danish translation (Erling Preben Hansen &lt;erling@eph.dk&gt;).
-* [jan] Don&apos;t return future tasks from cost objects API.
+* [jan] Show external tasks in the correct task type.
+* [jan] Purge old tasks from versions &lt; 2.3 too.
+* [jan] Allow to synchronize shared task lists via CalDAV (Request #12380).
+* [jan] Add script to import tasks from Open-Xchange.
+* [jan] Add recurrence controls to basic view (Request #11545).
+* [mjr] Add button for creating sub-task from task view (Request #12309).
+* [mjr] Add ability to return to existing search results after navigating to a task (Request #12879).
+* [jan] Make shares table compatible with Oracle.
+* [mjr] Add API support for multiple tasklists via ActiveSync.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="5022c538e9d08ebc033ed307b55ee80e" name="app/controllers/CompleteTask.php" role="horde" />
-   <file baseinstalldir="/" md5sum="c29c8c8b83bfada3b9e1d4cb4ff00b8c" name="app/controllers/SaveTask.php" role="horde" />
+   <file baseinstalldir="/" md5sum="dfd88f2cfd60cd71735f747a11bd1289" name="app/controllers/SaveTask.php" role="horde" />
    <file baseinstalldir="/" md5sum="d54847fa2ce1b404dfbe0e62ae97a981" name="bin/nag-convert-datatree-shares-to-sql" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
    <file baseinstalldir="/" md5sum="27b74b1de4b4234aaf5673d1f6be7013" name="bin/nag-convert-sql-shares-to-sqlng" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
-   <file baseinstalldir="/" md5sum="5263256a36ef1767ec70a6fc83120cc0" name="bin/nag-create-missing-add-histories-sql" role="script">
+   <file baseinstalldir="/" md5sum="496ea2993cf85626b4390177af0fb67f" name="bin/nag-create-missing-add-histories-sql" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
-   <file baseinstalldir="/" md5sum="86540b2d8be9fc17eed6f2fef436d48c" name="bin/nag-import-vtodos" role="script">
+   <file baseinstalldir="/" md5sum="5a09d411f12be32698adb648fa13e220" name="bin/nag-import-openxchange" role="script" />
+   <file baseinstalldir="/" md5sum="74a34186a95a285dd8b0112024ac0be6" name="bin/nag-import-vtodos" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="config/.htaccess" role="horde" />
    <file baseinstalldir="/" md5sum="a38184c954c8bfdf7703198155973d3f" name="config/conf.xml" role="horde" />
    <file baseinstalldir="/" md5sum="03390ece021853a7ff380ab60ba6f9f1" name="config/hooks.php.dist" role="horde" />
    <file baseinstalldir="/" md5sum="dbe74efe7ee522318610a9a99db330ff" name="config/menu.php.dist" role="horde" />
-   <file baseinstalldir="/" md5sum="8dd63a3f7ce37b9460ea705581147bf9" name="config/prefs.php" role="horde" />
+   <file baseinstalldir="/" md5sum="87d4f1feb62842b6035b9e1ea8ac0c00" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="c4f2a6989252a5a973b6f9d4eda83c31" name="docs/CHANGES" role="doc" />
-   <file baseinstalldir="/" md5sum="26bc5f671940b8f1c322ae6f7c1208c1" name="docs/CREDITS" role="doc" />
+   <file baseinstalldir="/" md5sum="813bc5276a719f2bfbdea9f3bcd7ddca" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="9446c68be07cf2b70a921a7abde01657" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="5902b15e47d132aef3aafb7e8bf19bc0" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="5af932a8a0a6c05ac4551a99eddb98af" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
-   <file baseinstalldir="/" md5sum="f04036d92e752b444d9c9f1b637e53e9" name="docs/UPGRADING" role="doc" />
-   <file baseinstalldir="/" md5sum="a2c30ff49bae06688f9b1bd86895267b" name="js/calendar.js" role="horde" />
-   <file baseinstalldir="/" md5sum="c2fef14e44b67a8392935f6128955d98" name="js/smartmobile.js" role="horde" />
+   <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
+   <file baseinstalldir="/" md5sum="6c77dd1e895db2185ee7a43563f77e4f" name="js/calendar.js" role="horde" />
+   <file baseinstalldir="/" md5sum="ca651a536ac0cc9cfb001f5b9b94a242" name="js/smartmobile.js" role="horde" />
    <file baseinstalldir="/" md5sum="7968323b22a6ee43c43f20b082cdf1e2" name="js/task.js" role="horde" />
-   <file baseinstalldir="/" md5sum="2ae049446224299e0428cd0578ad8be3" name="lib/Ajax/Application/Handler/Smartmobile.php" role="horde" />
-   <file baseinstalldir="/" md5sum="f62d49735de78de1fdab0177887bdb63" name="lib/Ajax/Imple/TagAutoCompleter.php" role="horde" />
-   <file baseinstalldir="/" md5sum="9c8a58025b04a400275c05527918cb81" name="lib/Ajax/Application.php" role="horde" />
-   <file baseinstalldir="/" md5sum="042c15d6424f56f7be46e2c7f359484d" name="lib/Block/Summary.php" role="horde" />
-   <file baseinstalldir="/" md5sum="2d8a88dce5a3b0ae6a1bf0bafb307af5" name="lib/Driver/Kolab.php" role="horde" />
+   <file baseinstalldir="/" md5sum="3c28c0769b81c5789c102d7b34476907" name="lib/Ajax/Application/Handler/Smartmobile.php" role="horde" />
+   <file baseinstalldir="/" md5sum="07fa046c625f9bd30378cfecd401a690" name="lib/Ajax/Imple/TagAutoCompleter.php" role="horde" />
+   <file baseinstalldir="/" md5sum="11e7500819231f08c9983016272b3bd3" name="lib/Ajax/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="eaa3e79fad4b29bd1aa1da3c0b96e883" name="lib/Block/Summary.php" role="horde" />
+   <file baseinstalldir="/" md5sum="f2d895ca56017d08eeb855161ef6edb5" name="lib/Driver/Kolab.php" role="horde" />
    <file baseinstalldir="/" md5sum="7b52854867a6f17e72d6f2921589f250" name="lib/Driver/Smartlist.php" role="horde" />
-   <file baseinstalldir="/" md5sum="61ec53b7788f13ce7c770c05000f0049" name="lib/Driver/Sql.php" role="horde" />
+   <file baseinstalldir="/" md5sum="b4a78ac542f67c6b4d443d6587c2a66a" name="lib/Driver/Sql.php" role="horde" />
    <file baseinstalldir="/" md5sum="3c840d9498a02fad5a36f1f776024b0f" name="lib/Factory/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="ac63c28bd00e8767b81771ba7f1ee4ec" name="lib/Factory/TagBrowser.php" role="horde" />
    <file baseinstalldir="/" md5sum="c4a8f920cc56c62d08fbeee784e63fcf" name="lib/Factory/Tasklists.php" role="horde" />
    <file baseinstalldir="/" md5sum="7bb879efda42ee22303bfc183f1538aa" name="lib/Form/Type/NagAlarm.php" role="horde" />
    <file baseinstalldir="/" md5sum="a007387fe7c473cff63afcb525eed85f" name="lib/Form/Type/NagDue.php" role="horde" />
    <file baseinstalldir="/" md5sum="de8b2ae2eef14a1b824b8f168c8559e4" name="lib/Form/Type/NagMethod.php" role="horde" />
-   <file baseinstalldir="/" md5sum="8e1cad2a13aac6ce420bff0e66d2e6c1" name="lib/Form/Type/NagSearchDue.php" role="horde" />
+   <file baseinstalldir="/" md5sum="4b59b0d0f875d07035c5cd8bc4d3b0e2" name="lib/Form/Type/NagRecurrence.php" role="horde" />
+   <file baseinstalldir="/" md5sum="165fb27865f31e774be444c51e0379fe" name="lib/Form/Type/NagSearchDue.php" role="horde" />
    <file baseinstalldir="/" md5sum="2e96474f211b733d3a5647f6ddd4a917" name="lib/Form/Type/NagStart.php" role="horde" />
-   <file baseinstalldir="/" md5sum="95b9d6e405a8fe40dae43c6006564db9" name="lib/Form/Type/NagTags.php" role="horde" />
+   <file baseinstalldir="/" md5sum="61408fafcac7e67e4bfdddb1e53ea348" name="lib/Form/Type/NagTags.php" role="horde" />
    <file baseinstalldir="/" md5sum="fced46358de59d46154faadada1cb824" name="lib/Form/CreateTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="ecde3da3fa16e2c983f385c34d5a42e3" name="lib/Form/DeleteTaskList.php" role="horde" />
-   <file baseinstalldir="/" md5sum="30263510910b053db414f571d5f648d1" name="lib/Form/EditTaskList.php" role="horde" />
+   <file baseinstalldir="/" md5sum="83dd366e53cc4856aafa5ffc0b046afc" name="lib/Form/EditTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="f93dcc05120f2dd529bf886d6306e662" name="lib/Form/Search.php" role="horde" />
-   <file baseinstalldir="/" md5sum="0dec484c368378efbb1901486146b01e" name="lib/Form/Task.php" role="horde" />
-   <file baseinstalldir="/" md5sum="9632b993a8c6dee8958b3ad491173798" name="lib/LoginTasks/Task/PurgeCompleted.php" role="horde" />
-   <file baseinstalldir="/" md5sum="b1d656694ae424284d35399c5bae12ab" name="lib/Prefs/Special/TaskAlarms.php" role="horde" />
+   <file baseinstalldir="/" md5sum="9dba85ceeb010507c979d54f1ca9fe65" name="lib/Form/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="cc290f641518c871e8315de6a7628b78" name="lib/LoginTasks/Task/PurgeCompleted.php" role="horde" />
+   <file baseinstalldir="/" md5sum="27aa48928457d5dcb0de4f7ceb8fbd90" name="lib/Prefs/Special/TaskAlarms.php" role="horde" />
    <file baseinstalldir="/" md5sum="45949e69e7d1a116061ba1fac40e5952" name="lib/Tasklists/Base.php" role="horde" />
-   <file baseinstalldir="/" md5sum="df757e4935edfacb9274b05262fc402f" name="lib/Tasklists/Default.php" role="horde" />
+   <file baseinstalldir="/" md5sum="dd66150e8655beef0d9e2bfa1899d5a3" name="lib/Tasklists/Default.php" role="horde" />
    <file baseinstalldir="/" md5sum="d96247c0b00701c16e5c6ed450244f1c" name="lib/Tasklists/Kolab.php" role="horde" />
-   <file baseinstalldir="/" md5sum="5c8e44de6b3387055c52248a8c03e3d4" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="eacfddd82fa1e19c728205b9fefffd9f" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="8ea9552d90899e616663f9f6d81b84f1" name="lib/View/Helper/List.php" role="horde" />
-   <file baseinstalldir="/" md5sum="a9db04b8fbb3993da6c07063ed27cd55" name="lib/View/List.php" role="horde" />
+   <file baseinstalldir="/" md5sum="a0acf621600d04797ff5f63e25831db9" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="lib/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="e71962fd2d224a0c031ead15702c99a3" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="11dd0eaed90297dddb1b8c2550946817" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="b4ffde0248233e150e49c7c6aaa61272" name="lib/Api.php" role="horde" />
+   <file baseinstalldir="/" md5sum="3175bd5355375763071d61ffbd9cb87c" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="eeaa07177c84ac42b3595b493f0b981a" name="lib/CompleteTask.php" role="horde" />
-   <file baseinstalldir="/" md5sum="b25a71a820a39fb8d313bfcf04dab16f" name="lib/Driver.php" role="horde" />
-   <file baseinstalldir="/" md5sum="6f29bf8a5732525c5d5be8516a797261" name="lib/Exception.php" role="horde" />
-   <file baseinstalldir="/" md5sum="2c230991915751e91b28decac5911514" name="lib/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d21a5433bfe81d51660b2bd01e6dae94" name="lib/Driver.php" role="horde" />
+   <file baseinstalldir="/" md5sum="c3204c46a65e7d4f37e16896d686602f" name="lib/Exception.php" role="horde" />
+   <file baseinstalldir="/" md5sum="52d7ca29897be310d8e9ef390881e624" name="lib/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="5e82052027dc0a6141af7569b72e5fc9" name="lib/QuickParser.php" role="horde" />
-   <file baseinstalldir="/" md5sum="da4418d856badbf05c128239a775d21f" name="lib/Search.php" role="horde" />
-   <file baseinstalldir="/" md5sum="d9b28387460ae8207c1013b744d78c58" name="lib/Smartmobile.php" role="horde" />
-   <file baseinstalldir="/" md5sum="50f9d1f05f0ddef5e710be737cd0d95b" name="lib/TagBrowser.php" role="horde" />
-   <file baseinstalldir="/" md5sum="20525eb066e386a7e3b0b7dcde3f97ae" name="lib/Tagger.php" role="horde" />
-   <file baseinstalldir="/" md5sum="02bce00c5c5b8579ae4fffb592d6c47b" name="lib/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="ea088c395d94b41cd6f9dcc74a80e4ab" name="lib/Search.php" role="horde" />
+   <file baseinstalldir="/" md5sum="b22064e338ead1b7ebb65a6a6cee8ace" name="lib/Smartmobile.php" role="horde" />
+   <file baseinstalldir="/" md5sum="c58509ba7615390241a18f5bdb35278f" name="lib/TagBrowser.php" role="horde" />
+   <file baseinstalldir="/" md5sum="f1c9ecb917afe858085ded9cee35079b" name="lib/Tagger.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8a7f49a7f225eb1f0d3bc11c7b5cb789" name="lib/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="66979c4865d79c65e8fb3955e02b9535" name="lib/Tasklist.php" role="horde" />
    <file baseinstalldir="/" md5sum="c73885a7700b81e07af5a99f9fd5f329" name="locale/ar/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="412935d3715fe47c770ef9e7407897bc" name="locale/ar/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="09b6a9a7ee480fc167e12a74ac0887c9" name="locale/bg/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="fd449e4f99ad4c0181d540a0e7e462d0" name="locale/bg/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="08b5379fc78969ca250be8c11703e45e" name="locale/bg/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="67397161f00384862b22bf33487386c4" name="locale/ca/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="ea053f006781cba9ab68aeb9221c1dca" name="locale/ca/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="47de112b5690554235385f146f8a437a" name="locale/ca/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="9387349475abd7de9c443c0f37dd1c5e" name="locale/ca/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="67af22edf8e3c4e1cfc16d3b151711bd" name="locale/cs/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="73a7223a020bff9eaf3210e98c812559" name="locale/cs/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="75114eebaf33d09882d7ab6e61c4b68a" name="locale/da/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="03537308beb83158ab40bf595091df89" name="locale/da/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="0975455981c16db25c49c99dc218cddf" name="locale/de/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="4303321164833439deef3d5dd09b714e" name="locale/de/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="14351705fb7eb0b2b19a4df9a2fea239" name="locale/cs/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="504c58e592ea88dd24b8986769e5a68b" name="locale/da/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="deab47941c6332c7646d3ba2f2dfb16e" name="locale/da/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="f76e8ad3438606c3c1f3458dd62989af" name="locale/de/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="9edd4ca56740822190a15ce5c28a6adc" name="locale/de/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="bc8c563a66689c1b503521fc2d4bc12a" name="locale/de/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="c11bc40fcb1b8319aa8e33101507fd7c" name="locale/el/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="c52be431df8b59ca2ef4b0ed89f30db2" name="locale/el/LC_MESSAGES/nag.po" role="horde" />
@@ -144,108 +153,109 @@
    <file baseinstalldir="/" md5sum="9ceb543f139ef4b6fc0fb444cd4f273c" name="locale/fr/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="ffe752b5710a1ae730364bcda073c394" name="locale/fr/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="a6b16b276e68df54d19bf9978874d986" name="locale/hr/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="474d8b728c18f2f6559ac50c5d01997e" name="locale/hr/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="5272396ca105606adab577237ecdddef" name="locale/hr/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="10872032be437f74e2cd65846d7a8d3f" name="locale/hr/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="9777f9a167ae380b14619f3e1b9fbdb9" name="locale/hu/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="50dbdade834bac70ee4b74176f98417c" name="locale/hu/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="643f26f4c3277e88fa299810cda9ad79" name="locale/hu/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="1f00cbd9960ad2d32a9d05649227bb6d" name="locale/hu/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="5e5f195e01a2cc4f783712a4ad6fcf29" name="locale/id/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="2ed1949b7fa3dbab4c983473ca409b01" name="locale/id/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="253f656c6044eb870fcef71c78b9d579" name="locale/id/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="887a82c97fef02b902d6977699c17381" name="locale/it/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="c7905b8ea230c9dbdf4521c0ea521f24" name="locale/it/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="0fadefdc53f3bfef02d4161a3e4a3a26" name="locale/ja/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="3682136591814f86b3f289756e23e0e2" name="locale/ja/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="e90881af0d14fe49ff08e381eafe323d" name="locale/ko/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="0afc54f08f29943ba4f24cc37df8fbe5" name="locale/ko/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="ee71efebc63add7c90f371e3ea3778ed" name="locale/ja/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="1d381702e07d01a99962680242e4e58c" name="locale/ja/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="c9275c9ab3d97cd39b8f28b521779956" name="locale/ko/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="63ed65c2af03f0184497d23ca9462889" name="locale/ko/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="779fe51d11295eb5baf7800fdbb52b2c" name="locale/lt/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="7f46ce8b9d5486ee05c2fdcc742f2e35" name="locale/lt/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="a2054378f05ceab1062db6aae27c6572" name="locale/lt/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="72381d68a723e40c3550245660ca8356" name="locale/lv/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="889b248c01c37ba63b44b138e2945422" name="locale/lv/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="58a7b4bc13671b384b4bb2613ed9aa01" name="locale/lv/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="fcdc8f5c21a52a6bca7d50df0e354113" name="locale/lv/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="4ba1f0d4c7fe392da775321866215a52" name="locale/nb/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="12879e3a42cebd24b743eb56cb157adc" name="locale/nb/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="a1d6a35d83f0109a9ba2deaf1f11d5a4" name="locale/nb/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="b0032b3ae6f9f3167a9d678f8739bd7e" name="locale/nl/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="5427e8a2d1b5a6c7e1846db25f2030f1" name="locale/nl/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="ffbe0ab7e2fda27662e482741f4c6c2b" name="locale/nl/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="6acb61725926bcb0332835ee8352b6bd" name="locale/nl/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="d4f8c0194bd82fa503690fa87baf9502" name="locale/nn/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="e22483ebadf056935c659ce0f9d566ca" name="locale/nn/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="4c0f31dd3a26cec6c5034f91d0f0332f" name="locale/pl/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="9da00bf645b383f9be86de83559c0edc" name="locale/pl/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="6116362ea134fcbaedbee90155254579" name="locale/pl/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="891360a23be3d60e38500999010a9a3d" name="locale/pt/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="fe2358bb2e072a105c14eb2f4a87e271" name="locale/pt/LC_MESSAGES/nag.po" role="horde" />
-   <file baseinstalldir="/" md5sum="19ee65a8fd5aca09fbe3df57c3b0e3cc" name="locale/pt_BR/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="dd227a950eef6d3d8185600d0cfe30cc" name="locale/pt_BR/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="987e5f5df4c072dbe6fb1670075d8b4c" name="locale/pt/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="1df537e0a5e5c7f410ef5968b5e2fb8f" name="locale/pt_BR/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="2187cfc07c4c63e08fdb7794e4bc0228" name="locale/pt_BR/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="8d779c80542f41bf24d243c0cab268c1" name="locale/ro/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="103cfdbf237278dd59ff391bad4694de" name="locale/ro/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="1e2bee6cbcfbecc3add1649649d949ab" name="locale/ro/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="27169ded15bfa7be572d24c076de6af7" name="locale/ru/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="6ba666b172fc48d2f08748a0fd795c89" name="locale/ru/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="b33963ce691f3be591d3b9b3504382ee" name="locale/sk/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="804a674a7fa4eeb6b0c75f5b0bbbf856" name="locale/sk/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="9cb7b38dc3d4b4a01ca54023aaa32e3f" name="locale/sk/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="7d277f06b90b42d89bf0cf21f7b19183" name="locale/sl/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="f052f8a5c87fe96c805b105dfa65b0a2" name="locale/sl/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="015525862b67ad87f624f6f73023ee2a" name="locale/sl/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="ac13a4d2ed835177ace29d2d1d736f2b" name="locale/sv/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="ded19b03a08afefb72426b64df02e187" name="locale/sv/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="12d240b2ea913162e8c5e607b1f5a015" name="locale/tr/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="469a6fcd99f55005ed5a7b000c4bd638" name="locale/tr/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="b6a774b8d616398088ab67b6e690731a" name="locale/tr/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="88bbff42cb4b71d7054d2ea2e867c329" name="locale/tr/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="29d4666ace97a49ab231c449dcb9a82b" name="locale/uk/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="976a3ef4cfd9c737aebc250756538d83" name="locale/uk/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="48109e801ea52cc79b98644efbc47810" name="locale/uk/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="18c3af27395e1ff8a9e7c3c61f3af157" name="locale/zh_CN/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="4b0079360ddf3948c0ddf92cc68c3ad7" name="locale/zh_CN/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="86361e7cba43e5160c6186f80a254997" name="locale/zh_TW/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="07526807c717712cf09fbf7d09b99e17" name="locale/zh_TW/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="locale/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="e94437550963fc240dc99371045b75e9" name="locale/nag.pot" role="horde" />
-   <file baseinstalldir="/" md5sum="30c4c770502431e8e8aef87c3918d8bd" name="migration/1_nag_base_tables.php" role="horde" />
-   <file baseinstalldir="/" md5sum="5503b341a28d7e1ce527b05b44b4b416" name="migration/2_nag_upgrade_autoincrement.php" role="horde" />
-   <file baseinstalldir="/" md5sum="feb60cce376b40fe6fbe79e2fe3996ad" name="migration/3_nag_upgrade_addalarmmethods.php" role="horde" />
-   <file baseinstalldir="/" md5sum="cd1bf2ee48e358c1279c44e2c0f2681f" name="migration/4_nag_upgrade_addcolor.php" role="horde" />
-   <file baseinstalldir="/" md5sum="ccb4be69cf14f89a0a3ae3914f982b05" name="migration/5_nag_upgrade_systemshares.php" role="horde" />
-   <file baseinstalldir="/" md5sum="9cf9ce3fdb73b2f5636f18c2fc7c7deb" name="migration/6_nag_upgrade_sqlng.php" role="horde" />
-   <file baseinstalldir="/" md5sum="a2e9958613225fd89d467c0a07d175c7" name="migration/7_nag_upgrade_sqlhierarchical.php" role="horde" />
-   <file baseinstalldir="/" md5sum="89dcf46b6966f33b8e0726d28d025dfa" name="migration/8_nag_upgrade_sqlnghierarchical.php" role="horde" />
-   <file baseinstalldir="/" md5sum="038013e12444107d62ed7b1dd6e38041" name="migration/9_nag_upgrade_recurrence.php" role="horde" />
-   <file baseinstalldir="/" md5sum="a4f13f97a78ae1e3dd4d9c947fad633a" name="migration/10_nag_upgrade_categoriestotags.php" role="horde" />
-   <file baseinstalldir="/" md5sum="8636222889aa6a5cfa81ccb69bf889d2" name="migration/11_nag_upgrade_smartlists.php" role="horde" />
-   <file baseinstalldir="/" md5sum="69ef260ccaffba4dec954d4cfc4deabc" name="migration/12_nag_fix_smartlists.php" role="horde" />
-   <file baseinstalldir="/" md5sum="96ba7b7626c815ce3132e98cbab6d76a" name="tasklists/create.php" role="horde" />
-   <file baseinstalldir="/" md5sum="88a4885be63cd6c446e1107196f5b4ac" name="tasklists/delete.php" role="horde" />
-   <file baseinstalldir="/" md5sum="80635a5adee3e9b2d17bcd1cb513cd17" name="tasklists/edit.php" role="horde" />
+   <file baseinstalldir="/" md5sum="13878441ce2aecbcac2cae821d241090" name="locale/nag.pot" role="horde" />
+   <file baseinstalldir="/" md5sum="f80de261a246b063128d6af13023042e" name="migration/1_nag_base_tables.php" role="horde" />
+   <file baseinstalldir="/" md5sum="79fed402ea04cccf73277ceef2a39eee" name="migration/2_nag_upgrade_autoincrement.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8f2df130dfdc1d1f4c22c97d493c2918" name="migration/3_nag_upgrade_addalarmmethods.php" role="horde" />
+   <file baseinstalldir="/" md5sum="bb9779e1aa30f253f9c4cea85b40ea85" name="migration/4_nag_upgrade_addcolor.php" role="horde" />
+   <file baseinstalldir="/" md5sum="eb1bc464f9f2cb78332462bbd33425b9" name="migration/5_nag_upgrade_systemshares.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8a08cc2c77dc1a14c49829d6a81e243b" name="migration/6_nag_upgrade_sqlng.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8cce93dfa201a4d68d9fc10313cd0b1f" name="migration/7_nag_upgrade_sqlhierarchical.php" role="horde" />
+   <file baseinstalldir="/" md5sum="ece8ebead549b8e45519dee387d00a68" name="migration/8_nag_upgrade_sqlnghierarchical.php" role="horde" />
+   <file baseinstalldir="/" md5sum="ab24ac22f4e88cbb227f528994302ed3" name="migration/9_nag_upgrade_recurrence.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d4a4e6c6f686543745f8f8d1ebf64904" name="migration/10_nag_upgrade_categoriestotags.php" role="horde" />
+   <file baseinstalldir="/" md5sum="80c98690a566a8265e0f8cdf152b5187" name="migration/11_nag_upgrade_smartlists.php" role="horde" />
+   <file baseinstalldir="/" md5sum="73e23a5a14fc2381d8ff6e567aaac0e0" name="migration/12_nag_fix_smartlists.php" role="horde" />
+   <file baseinstalldir="/" md5sum="10ca2322e84723f55665abdd93d12b1d" name="migration/13_nag_upgrade_parents.php" role="horde" />
+   <file baseinstalldir="/" md5sum="44ec5a3f11f78927aef6b9cf0f0b5a53" name="tasklists/create.php" role="horde" />
+   <file baseinstalldir="/" md5sum="133728a9ff3b3b20895907db444944ad" name="tasklists/delete.php" role="horde" />
+   <file baseinstalldir="/" md5sum="9bd274c459b4d9fb92673fbd2483aec6" name="tasklists/edit.php" role="horde" />
    <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="tasklists/index.html" role="horde" />
-   <file baseinstalldir="/" md5sum="e2e55cd99482565c03bb34ef1c6b7fec" name="tasks/index.php" role="horde" />
-   <file baseinstalldir="/" md5sum="3cb76a225f233638404f0d3351edba1e" name="templates/alarm/mail.html.php" role="horde" />
+   <file baseinstalldir="/" md5sum="ad225f8f5831e9c482731b004b5bd05f" name="tasks/index.php" role="horde" />
+   <file baseinstalldir="/" md5sum="e7e0c2cd794f7fb0d5416a501d29d0e1" name="templates/alarm/mail.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="69c5db041196ea745b18237e80d3b36d" name="templates/alarm/mail.plain.php" role="horde" />
    <file baseinstalldir="/" md5sum="bc429b549b44e865c250f6ce5a84ab8a" name="templates/data/export.inc" role="horde" />
-   <file baseinstalldir="/" md5sum="d2b606b7fb3ea7af8bae521f9f7328c6" name="templates/data/import.inc" role="horde" />
+   <file baseinstalldir="/" md5sum="73ffaece264b6e4c27aed458e65e223b" name="templates/data/import.inc" role="horde" />
    <file baseinstalldir="/" md5sum="e2c9b8af8ac3581f241af4afc10b12f8" name="templates/list/header.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="dc80d59b1325334294d59b8ab15bdc79" name="templates/list/task_headers.html.php" role="horde" />
-   <file baseinstalldir="/" md5sum="577e16ea15f0695ffee492737a3a304d" name="templates/list/_task.html.php" role="horde" />
+   <file baseinstalldir="/" md5sum="589605def71689a7502f4e06c99aa034" name="templates/list/_task.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="62fca547a28a1e149b55b67db22ff107" name="templates/smartmobile/lists.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="cdc1812015d507e48a02661e2329e8a3" name="templates/smartmobile/main.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="63420be76943f8b9b8268f63cc847ec8" name="templates/smartmobile/taskform.html.php" role="horde" />
-   <file baseinstalldir="/" md5sum="822456ebd0890454e203e7806da684ba" name="templates/view/task.inc" role="horde" />
+   <file baseinstalldir="/" md5sum="4bdaf2543e890f3fd20a2e2f35ac2c46" name="templates/view/task.inc" role="horde" />
    <file baseinstalldir="/" md5sum="a7f290824f7601f42ef2bbc1b3a089bb" name="templates/javascript_defs.php" role="horde" />
-   <file baseinstalldir="/" md5sum="3b3af05c9a7e937af7f0ffcafc41ae91" name="templates/list.html.php" role="horde" />
+   <file baseinstalldir="/" md5sum="dd70015977412e522682e3e9a41fa506" name="templates/list.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="0d2dda541597dab0fa58ba29197fad2c" name="templates/quick.inc" role="horde" />
-   <file baseinstalldir="/" md5sum="9eb14a99d149054c925fac4667eebf49" name="test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="cb83f4a2e613ec1a9e0a6f5e1a53c2d7" name="test/Nag/Unit/Driver/Sql/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="3203ec62fd9a2b78dcac9724f9bf19b1" name="test/Nag/Unit/Driver/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="06749d24baeefdb415c1ed7b06681bbe" name="test/Nag/Unit/Driver/KolabTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="427b7eaf36cf1f7ddd71bd22d2da5dca" name="test/Nag/Unit/Factory/TasklistsTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="699b3454929aabb296c84fa6735fc91a" name="test/Nag/Unit/Form/Task/Sql/Pdo/SqliteTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="9423f7f937dad3fea577b8347186d8d8" name="test/Nag/Unit/Form/Task/Sql/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="5ded9c37d8748d3e55e409c31b4f8316" name="test/Nag/Unit/Form/Task/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="2882aecc65531a22f2adfddc6d3ed5cf" name="test/Nag/Unit/Form/Task/KolabTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="551c741c52c2aa738c7117e5473c899a" name="test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php" role="test" />
-   <file baseinstalldir="/" md5sum="6754055961acad2860ea96adeedb5a19" name="test/Nag/Unit/Nag/Sql/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="acf7954fc9f2162ac011294b9c9ec500" name="test/Nag/Unit/Nag/Base.php" role="test" />
-   <file baseinstalldir="/" md5sum="d194f902efad22c10e0561e69c3e5071" name="test/Nag/Unit/Nag/KolabTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="31331c4d9b4d3eae7ddde8e733759482" name="test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="0c44d564efbeb6a07d74f87e8763fe5c" name="test/Nag/Unit/Driver/Sql/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="7334428e0045ba32b4e98ee0f67dae5e" name="test/Nag/Unit/Driver/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="52040d763413d6f1cc54f35dffd46ef1" name="test/Nag/Unit/Driver/KolabTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="b0a6c9c17ffa3ce85ec60b81a93bf4e4" name="test/Nag/Unit/Factory/TasklistsTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="8eb702d60ce2c9a60a84b258f1627c3d" name="test/Nag/Unit/Form/Task/Sql/Pdo/SqliteTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="62cb43cfb8ea88ac70035272c0680955" name="test/Nag/Unit/Form/Task/Sql/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="740f8672ae2c47f2763200affa23f638" name="test/Nag/Unit/Form/Task/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="40c62728a73f57fe9825f500b257723f" name="test/Nag/Unit/Form/Task/KolabTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="30f267af3a4212d141506243b0cd0d26" name="test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php" role="test" />
+   <file baseinstalldir="/" md5sum="8fd102457bf9591ae82a7522741c7bd3" name="test/Nag/Unit/Nag/Sql/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="2b066fd1d4d62d2997888282aee320d8" name="test/Nag/Unit/Nag/Base.php" role="test" />
+   <file baseinstalldir="/" md5sum="21448ab697ad2b7260776edf626a7938" name="test/Nag/Unit/Nag/KolabTest.php" role="test" />
    <file baseinstalldir="/" md5sum="8bc9518b9c0576806c82d9413489d099" name="test/Nag/AllTests.php" role="test" />
    <file baseinstalldir="/" md5sum="02c78bdd3381585a0ed0a8e1c38f0bae" name="test/Nag/Autoload.php" role="test" />
    <file baseinstalldir="/" md5sum="0a5018f0726d4673850fece3ad4d72c0" name="test/Nag/bootstrap.php" role="test" />
    <file baseinstalldir="/" md5sum="fbe4252ae686d7a73d94512be32e7f23" name="test/Nag/phpunit.xml" role="test" />
-   <file baseinstalldir="/" md5sum="1715fccd8b44226847f03208276f0654" name="test/Nag/TestCase.php" role="test" />
+   <file baseinstalldir="/" md5sum="ea13ce89ad34b2dfa4eb75b46fb51a69" name="test/Nag/TestCase.php" role="test" />
    <file baseinstalldir="/" md5sum="5472d69a22d76d18fc01cdccb721b1c4" name="themes/default/block/screen.css" role="horde" />
    <file baseinstalldir="/" md5sum="53d2cd0614602f43d0ff2c8ef7579e8d" name="themes/default/graphics/add.png" role="horde" />
    <file baseinstalldir="/" md5sum="8977814355b368cb0cd4701487a99df2" name="themes/default/graphics/alarm.png" role="horde" />
@@ -268,23 +278,25 @@
    <file baseinstalldir="/" md5sum="208d1cf004d29e5744b56b46c3751f6a" name="themes/default/graphics/unchecked.png" role="horde" />
    <file baseinstalldir="/" md5sum="2615204dabeab01bf35f0f1474a16e53" name="themes/default/graphics/za.png" role="horde" />
    <file baseinstalldir="/" md5sum="9b2df9e5153a5ac22eb90ba6dfbbc4f5" name="themes/default/smartmobile/screen.css" role="horde" />
-   <file baseinstalldir="/" md5sum="650eed19bc6f3f369251c08d9346a0f6" name="themes/default/screen.css" role="horde" />
+   <file baseinstalldir="/" md5sum="6964971d0b16e396cccf62bed1eca4df" name="themes/default/screen.css" role="horde" />
    <file baseinstalldir="/" md5sum="83600a711e6dd70e3193eedf92653fe7" name="COPYING" role="doc" />
-   <file baseinstalldir="/" md5sum="707fc926b75880f1b9904eadbf65c7f0" name="data.php" role="horde" />
-   <file baseinstalldir="/" md5sum="24d946a23a09b2f905cc1a1bfc820278" name="index.php" role="horde" />
-   <file baseinstalldir="/" md5sum="80cc6b1a98e077625f6a10cba0a25daf" name="list.php" role="horde" />
+   <file baseinstalldir="/" md5sum="1351915692798d10443bfe7128f5a000" name="data.php" role="horde" />
+   <file baseinstalldir="/" md5sum="3ff49f452462d22ee7fb461a968f3d6c" name="index.php" role="horde" />
+   <file baseinstalldir="/" md5sum="9d5508b4d9aed8094f88c679aed8c953" name="list.php" role="horde" />
    <file baseinstalldir="/" md5sum="d117beeec79379da70f6717310345c62" name="quick.php" role="horde" />
    <file baseinstalldir="/" md5sum="81409b086f6d47b102d3c2e76578227d" name="README" role="doc" />
-   <file baseinstalldir="/" md5sum="2da278e47cb5c4df39bd5a9a80aa11c5" name="search.php" role="horde" />
-   <file baseinstalldir="/" md5sum="d60ccc78069d78f8e4408119a73cc9f8" name="smartmobile.php" role="horde" />
-   <file baseinstalldir="/" md5sum="27b73a18372a556a14a67a7e2e4c556d" name="task.php" role="horde" />
-   <file baseinstalldir="/" md5sum="b1532821c55b7d327b92163c9a4127da" name="view.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d6d14b4beb8d6f231ea55e47990a9a18" name="search.php" role="horde" />
+   <file baseinstalldir="/" md5sum="5de99f8fcc2b96987538826528741e9e" name="smartmobile.php" role="horde" />
+   <file baseinstalldir="/" md5sum="de2e7763dfdcfb56124c36864a3a8eda" name="task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="60d75bca7c21b75faeeaf70eee860b96" name="view.php" role="horde" />
   </dir>
  </contents>
  <dependencies>
   <required>
    <php>
     <min>5.3.0</min>
+    <max>6.0.0alpha1</max>
+    <exclude>6.0.0alpha1</exclude>
    </php>
    <pearinstaller>
     <min>1.7.0</min>
@@ -477,6 +489,13 @@
     <exclude>3.0.0alpha1</exclude>
    </package>
    <package>
+    <name>Horde_OpenXchange</name>
+    <channel>pear.horde.org</channel>
+    <min>1.0.0alpha1</min>
+    <max>2.0.0alpha1</max>
+    <exclude>2.0.0alpha1</exclude>
+   </package>
+   <package>
     <name>Horde_Test</name>
     <channel>pear.horde.org</channel>
     <min>2.0.0</min>
@@ -507,6 +526,7 @@
    <install as="nag-convert-datatree-shares-to-sql" name="bin/nag-convert-datatree-shares-to-sql" />
    <install as="nag-convert-sql-shares-to-sqlng" name="bin/nag-convert-sql-shares-to-sqlng" />
    <install as="nag-create-missing-add-histories-sql" name="bin/nag-create-missing-add-histories-sql" />
+   <install as="nag-import-openxchange" name="bin/nag-import-openxchange" />
    <install as="nag-import-vtodos" name="bin/nag-import-vtodos" />
    <install as="nag/config/.htaccess" name="config/.htaccess" />
    <install as="nag/config/conf.xml" name="config/conf.xml" />
@@ -557,6 +577,7 @@
    <install as="nag/lib/Form/Type/NagAlarm.php" name="lib/Form/Type/NagAlarm.php" />
    <install as="nag/lib/Form/Type/NagDue.php" name="lib/Form/Type/NagDue.php" />
    <install as="nag/lib/Form/Type/NagMethod.php" name="lib/Form/Type/NagMethod.php" />
+   <install as="nag/lib/Form/Type/NagRecurrence.php" name="lib/Form/Type/NagRecurrence.php" />
    <install as="nag/lib/Form/Type/NagSearchDue.php" name="lib/Form/Type/NagSearchDue.php" />
    <install as="nag/lib/Form/Type/NagStart.php" name="lib/Form/Type/NagStart.php" />
    <install as="nag/lib/Form/Type/NagTags.php" name="lib/Form/Type/NagTags.php" />
@@ -664,6 +685,7 @@
    <install as="nag/migration/10_nag_upgrade_categoriestotags.php" name="migration/10_nag_upgrade_categoriestotags.php" />
    <install as="nag/migration/11_nag_upgrade_smartlists.php" name="migration/11_nag_upgrade_smartlists.php" />
    <install as="nag/migration/12_nag_fix_smartlists.php" name="migration/12_nag_fix_smartlists.php" />
+   <install as="nag/migration/13_nag_upgrade_parents.php" name="migration/13_nag_upgrade_parents.php" />
    <install as="nag/tasklists/create.php" name="tasklists/create.php" />
    <install as="nag/tasklists/delete.php" name="tasklists/delete.php" />
    <install as="nag/tasklists/edit.php" name="tasklists/edit.php" />
@@ -1237,6 +1259,44 @@
    <notes>
 * [jan] Update Danish translation (Erling Preben Hansen &lt;erling@eph.dk&gt;).
 * [jan] Don&apos;t return future tasks from cost objects API.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.1.5</release>
+    <api>4.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-03-10</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Update Korean translation (Deokgon Kim &lt;dgkim@dgkim.net&gt;).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.0alpha1</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2014-05-05</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Show external tasks in the correct task type.
+* [jan] Purge old tasks from versions &lt; 2.3 too.
+* [jan] Allow to synchronize shared task lists via CalDAV (Request #12380).
+* [jan] Add script to import tasks from Open-Xchange.
+* [jan] Add recurrence controls to basic view (Request #11545).
+* [mjr] Add button for creating sub-task from task view (Request #12309).
+* [mjr] Add ability to return to existing search results after navigating to a task (Request #12879).
+* [jan] Make shares table compatible with Oracle.
+* [mjr] Add API support for multiple tasklists via ActiveSync.
    </notes>
   </release>
  </changelog>
