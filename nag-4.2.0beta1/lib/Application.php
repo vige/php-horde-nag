@@ -43,7 +43,7 @@ class Nag_Application extends Horde_Registry_Application
 
     /**
      */
-    public $version = 'H5 (4.2.0alpha1)';
+    public $version = 'H5 (4.2.0beta1)';
 
     /**
      * Global variables defined:
@@ -155,7 +155,7 @@ class Nag_Application extends Horde_Registry_Application
                 'collapsed' => true,
             ),
         );
-        foreach (Nag::listTaskLists(false, Horde_Perms::SHOW, false) as $name => $tasklist) {
+        foreach (Nag::listTasklists(false, Horde_Perms::SHOW, false) as $name => $tasklist) {
             $url = $list->add(array(
                 'display_tasklist' => $name,
                 'actionID' => in_array($name, $display_tasklists)
@@ -296,7 +296,7 @@ class Nag_Application extends Horde_Registry_Application
 
         switch ($params['id']) {
         case 'menu':
-            $add = Horde::url('task.php')->add('actionID', 'add_task');
+            $add = Horde::url('task.php', true)->add('actionID', 'add_task');
 
             $tree->addNode(array(
                 'id' => $parent . '__new',
@@ -309,7 +309,7 @@ class Nag_Application extends Horde_Registry_Application
                 )
             ));
 
-            foreach (Nag::listTasklists(false, Horde_Perms::EDIT) as $name => $tasklist) {
+            foreach (Nag::listTasklists(false, Horde_Perms::EDIT, false) as $name => $tasklist) {
                 $tree->addNode(array(
                     'id' => $parent . $name . '__new',
                     'parent' => $parent . '__new',
