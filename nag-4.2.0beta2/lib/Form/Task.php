@@ -16,6 +16,10 @@
  */
 class Nag_Form_Task extends Horde_Form
 {
+    const SECTION_GENERAL = 1;
+    const SECTION_RECUR   = 2;
+    const SECTION_DESC    = 3;
+
     /**
      * Const'r
      *
@@ -49,10 +53,11 @@ class Nag_Form_Task extends Horde_Form
         $this->addHidden('', 'task_id', 'text', false);
         $this->addHidden('', 'old_tasklist', 'text', false);
         $this->addHidden('', 'url', 'text', false);
-        $this->addVariable(_("Name"), 'name', 'text', true);
         $this->addHidden('', 'uid', 'text', false);
         $this->addHidden('', 'owner', 'text', false);
 
+        $this->setSection(self::SECTION_GENERAL, _("General"));
+        $this->addVariable(_("Name"), 'name', 'text', true);
         if (!$GLOBALS['prefs']->isLocked('default_tasklist') &&
             count($tasklist_enums) > 1) {
             $v = $this->addVariable(
@@ -91,7 +96,6 @@ class Nag_Form_Task extends Horde_Form
         $delete = $share->hasPermission($GLOBALS['registry']->getAuth(), Horde_Perms::DELETE) && $vars->get('task_id');
 
         if (!$vars->get('mobile')) {
-            $users = array();
             $users = $share->listUsers(Horde_Perms::READ);
             $groups = $share->listGroups(Horde_Perms::READ);
             if (count($groups)) {
@@ -126,12 +130,14 @@ class Nag_Form_Task extends Horde_Form
 
             $v = $this->addVariable(_("Priority"), 'priority', 'enum', false, false, false, array($priorities));
             $v->setDefault(3);
-
-            $this->addVariable(_("Recurrence"), 'recurrence', 'Nag:NagRecurrence', false);
             $this->addVariable(_("Estimated Time"), 'estimate', 'number', false);
             $this->addVariable(_("Completed?"), 'completed', 'boolean', false);
+
+            $this->setSection(self::SECTION_RECUR, _("Recurrence"));
+            $this->addVariable(_("Recurrence"), 'recurrence', 'Nag:NagRecurrence', false);
         }
 
+        $this->setSection(self::SECTION_DESC, _("Description"));
         try {
             $description = Horde::callHook('description_help', array(), 'nag');
         } catch (Horde_Exception_HookNotSet $e) {
