@@ -20,7 +20,7 @@ class Nag_SaveTask_Controller extends Horde_Controller_Base
 
         // Check if we are here due to a search_return push.
         if ($vars->search_return) {
-            Horde::url('list.php', true)->add('actionID', 'search_return')->redirect();
+            Horde::url('list.php', true)->add(array('actionID' => 'search_return', 'list' => $vars->list, 'tab_name' => $vars->tab_name))->redirect();
         }
         // Check if we are here due to a deletebutton push
         if ($vars->deletebutton) {
@@ -48,7 +48,7 @@ class Nag_SaveTask_Controller extends Horde_Controller_Base
         }
 
         if ($prefs->isLocked('default_tasklist') ||
-            count(Nag::listTasklists(false, Horde_Perms::EDIT)) <= 1) {
+            count(Nag::listTasklists(false, Horde_Perms::EDIT, false)) <= 1) {
             $info['tasklist_id'] = $info['old_tasklist'] = Nag::getDefaultTasklist(Horde_Perms::EDIT);
         }
         try {
@@ -102,7 +102,8 @@ class Nag_SaveTask_Controller extends Horde_Controller_Base
                 'tasklist_id' => $info['tasklist_id'],
                 'parent' => $info['parent']));
         } else {
-            $url = Horde_Util::getFormData('url', Horde::url('list.php', true));
+            $url = Horde_Util::getFormData('url', (string)Horde::url('list.php', true));
+            $url = Horde::url($url, true);
         }
 
         $response->setRedirectUrl($url);
