@@ -199,16 +199,21 @@ class Nag
      *                DEFAULT: altsortby pref is used.
      *   - completed: (integer) Which task to retrieve. A Nag::VIEW_* constant.
      *                DEFAULT: show_completed pref is used.
-     *   - sortby: (string)  A Nag::SORT_* constant for the field to sort by.
-     *             DEFAULT: sortby pref is used.
-     *   - sortdir: (string) Direction of sort. NAG::SORT_ASCEND or NAG::SORT_DESCEND.
-     *              DEFAULT: sortdir pref is used.
+     *   - external: (boolean) Whether to include tasks from other applications
+     *               too.
+     *               DEFAULT: true.
+     *   - include_history: (boolean) Autoload created/modified data from
+     *                      Horde_History.
+     *                      DEFAULT: true (Automatically load history data).
      *   - include_tags: (boolean) Autoload all tags.
      *                   DEFAULT: false (Tags are lazy loaded as needed.)
+     *   - sortby: (string)  A Nag::SORT_* constant for the field to sort by.
+     *             DEFAULT: sortby pref is used.
+     *   - sortdir: (string) Direction of sort. NAG::SORT_ASCEND or
+     *              NAG::SORT_DESCEND.
+     *              DEFAULT: sortdir pref is used.
      *   - tasklists: (array) An array of tasklists to include.
      *                DEFAULT: Use $GLOBALS['display_tasklists'];
-     *   - include_history: (boolean) Autoload created/modified data from Horde_History.
-     *                      DEFAULT: true (Automatically load history data).
      *
      * @return Nag_Task  A list of the requested tasks.
      */
@@ -562,13 +567,14 @@ class Nag
             ->getInstance('Nag_Factory_Tasklists')
             ->create()
             ->getDefaultShare();
-        if (isset($tasklists[$default_tasklist])) {
-            $GLOBALS['prefs']->setValue('default_tasklist', $default_tasklist);
-            return $default_tasklist;
+
+        if (!isset($tasklists[$default_tasklist])) {
+            reset($tasklists);
+            $default_tasklist = key($tasklists);
         }
 
-        reset($tasklists);
-        return key($tasklists);
+        $GLOBALS['prefs']->setValue('default_tasklist', $default_tasklist);
+        return $default_tasklist;
     }
 
     /**
@@ -730,9 +736,7 @@ class Nag
                 $url .= '/rpc.php/calendars/';
             }
             $url = Horde::url($url, true, -1)
-                . ($tasklist->get('owner')
-                   ? $tasklist->get('owner')
-                   : '-system-')
+                . $registry->getAuth()
                 . '/'
                 . $injector->getInstance('Horde_Dav_Storage')
                     ->getExternalCollectionId($tasklist->getName(), 'tasks')
