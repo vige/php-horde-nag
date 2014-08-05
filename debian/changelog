@@ -1,3 +1,9 @@
+php-horde-nag (4.2.1-1) UNRELEASED; urgency=medium
+
+  * New upstream version 4.2.1
+
+ -- Mathieu Parent <sathieu@debian.org>  Tue, 05 Aug 2014 10:44:18 +0200
+
 php-horde-nag (4.2.0-1) unstable; urgency=medium
 
   * New upstream version 4.2.0
