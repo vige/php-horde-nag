@@ -22,10 +22,10 @@
   <email>chuck@horde.org</email>
   <active>false</active>
  </lead>
- <date>2014-07-08</date>
- <time>18:29:16</time>
+ <date>2014-08-04</date>
+ <time>17:32:19</time>
  <version>
-  <release>4.2.0</release>
+  <release>4.2.1</release>
   <api>4.2.0</api>
  </version>
  <stability>
@@ -34,8 +34,12 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [mjr] Fix returning to previously selected tab after task is saved (Bug #13308).
-* [mjr] Fix fatal error when saving a task, only one tasklist exists, and at least one SmartList exists.
+* [jan] Don&apos;t include external tasks with WebDAV task list.
+* [jan] Fix displayed CalDAV URLs for shared task lists (Bug #12380).
+* [mjr] Fix remembering auto determined default share (Bug #13360).
+* [mjr] Add EAS client created shares to the sync_lists preference (Bug #13359).
+* [mjr] Add missing API support for searchTags API (Bug #13364).
+* [mjr] Fix detecting task completion when sending task change notifications (Alfonso Marín Marín &lt;almarin@um.es&gt;, Bug #13350).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -50,7 +54,9 @@
    <file baseinstalldir="/" md5sum="496ea2993cf85626b4390177af0fb67f" name="bin/nag-create-missing-add-histories-sql" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
-   <file baseinstalldir="/" md5sum="5a09d411f12be32698adb648fa13e220" name="bin/nag-import-openxchange" role="script" />
+   <file baseinstalldir="/" md5sum="5a09d411f12be32698adb648fa13e220" name="bin/nag-import-openxchange" role="script">
+    <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
+   </file>
    <file baseinstalldir="/" md5sum="74a34186a95a285dd8b0112024ac0be6" name="bin/nag-import-vtodos" role="script">
     <tasks:replace from="/usr/bin/env php" to="php_bin" type="pear-config" />
    </file>
@@ -61,11 +67,11 @@
    <file baseinstalldir="/" md5sum="87d4f1feb62842b6035b9e1ea8ac0c00" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="08f7c94bff121c90de28ffd5dee1693d" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="97cbe2e51c0120d7d041a1fbc1151a6c" name="docs/CHANGES" role="doc" />
    <file baseinstalldir="/" md5sum="ab29d7ba72d360da0505643fca943962" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="ea7c74b7c34c5184ec5ef8459beb9556" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="909093e720785e390dc4e53150134c90" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="6c77dd1e895db2185ee7a43563f77e4f" name="js/calendar.js" role="horde" />
@@ -95,19 +101,19 @@
    <file baseinstalldir="/" md5sum="04ddef520a0e53de2090c6a7f0f3c4be" name="lib/Form/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="cc290f641518c871e8315de6a7628b78" name="lib/LoginTasks/Task/PurgeCompleted.php" role="horde" />
    <file baseinstalldir="/" md5sum="27aa48928457d5dcb0de4f7ceb8fbd90" name="lib/Prefs/Special/TaskAlarms.php" role="horde" />
-   <file baseinstalldir="/" md5sum="45949e69e7d1a116061ba1fac40e5952" name="lib/Tasklists/Base.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d4e87b151fa7db06fc4eab491bac8a32" name="lib/Tasklists/Base.php" role="horde" />
    <file baseinstalldir="/" md5sum="dd66150e8655beef0d9e2bfa1899d5a3" name="lib/Tasklists/Default.php" role="horde" />
-   <file baseinstalldir="/" md5sum="d96247c0b00701c16e5c6ed450244f1c" name="lib/Tasklists/Kolab.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d66209ec06a4fa4828e592eb4f5d0233" name="lib/Tasklists/Kolab.php" role="horde" />
    <file baseinstalldir="/" md5sum="eacfddd82fa1e19c728205b9fefffd9f" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="8ea9552d90899e616663f9f6d81b84f1" name="lib/View/Helper/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="53135f20dfd0ea7baa4ac57f45afc27a" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="a1751e1f10a3b96b05d0401c97e72008" name="lib/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="563053c48e9c10231c7f26f34a1f0dfc" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="c9a76977541449a5a5ea4a9a07031bd4" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="29a110f62633920b0d59cb95eacd20d0" name="lib/Api.php" role="horde" />
+   <file baseinstalldir="/" md5sum="dd90ec0612bda3ee0b6d73345af200c7" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="eeaa07177c84ac42b3595b493f0b981a" name="lib/CompleteTask.php" role="horde" />
-   <file baseinstalldir="/" md5sum="d21a5433bfe81d51660b2bd01e6dae94" name="lib/Driver.php" role="horde" />
+   <file baseinstalldir="/" md5sum="d321451a0e827980dd71f614527ce2e6" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="c3204c46a65e7d4f37e16896d686602f" name="lib/Exception.php" role="horde" />
-   <file baseinstalldir="/" md5sum="cce58440e21b7168a519d74fef4264ec" name="lib/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="b53dba2b11d76410641c5354553dfbbb" name="lib/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="5e82052027dc0a6141af7569b72e5fc9" name="lib/QuickParser.php" role="horde" />
    <file baseinstalldir="/" md5sum="ea088c395d94b41cd6f9dcc74a80e4ab" name="lib/Search.php" role="horde" />
    <file baseinstalldir="/" md5sum="b22064e338ead1b7ebb65a6a6cee8ace" name="lib/Smartmobile.php" role="horde" />
@@ -1359,6 +1365,26 @@
    <notes>
 * [mjr] Fix returning to previously selected tab after task is saved (Bug #13308).
 * [mjr] Fix fatal error when saving a task, only one tasklist exists, and at least one SmartList exists.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.1</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2014-08-04</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Don&apos;t include external tasks with WebDAV task list.
+* [jan] Fix displayed CalDAV URLs for shared task lists (Bug #12380).
+* [mjr] Fix remembering auto determined default share (Bug #13360).
+* [mjr] Add EAS client created shares to the sync_lists preference (Bug #13359).
+* [mjr] Add missing API support for searchTags API (Bug #13364).
+* [mjr] Fix detecting task completion when sending task change notifications (Alfonso Marín Marín &lt;almarin@um.es&gt;, Bug #13350).
    </notes>
   </release>
  </changelog>
