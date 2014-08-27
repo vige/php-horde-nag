@@ -8,6 +8,7 @@ Standards-Version: 3.9.5
 Homepage: http://www.horde.org/
 Vcs-Git: git://anonscm.debian.org/pkg-horde/PEAR/php-horde-nag.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-horde/PEAR/php-horde-nag.git
+XS-Testsuite: autopkgtest
 
 Package: php-horde-nag
 Architecture: all
