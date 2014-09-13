@@ -1,2 +1,7 @@
 #!/bin/sh
-php nag-4.2.1/test/Nag/AllTests.php
+
+set -x
+set -e
+
+cd nag*/test/./Nag
+phpunit -v .
