@@ -1,8 +1,9 @@
-php-horde-nag (4.2.1-5) UNRELEASED; urgency=medium
+php-horde-nag (4.2.4-1) UNRELEASED; urgency=medium
 
   * Update Standards-Version to 3.9.6, no change
+  * New upstream version 4.2.4
 
- -- Mathieu Parent <sathieu@debian.org>  Sun, 03 May 2015 22:36:28 +0200
+ -- Mathieu Parent <sathieu@debian.org>  Sun, 03 May 2015 23:01:40 +0200
 
 php-horde-nag (4.2.1-4) unstable; urgency=medium
 
