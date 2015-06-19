@@ -1,0 +1,29 @@
+<?php
+/* Security release? */
+$notes['security'] = false;
+
+/* Mailing list release notes. */
+$notes['changes'] = <<<ML
+The Horde Team is pleased to announce the final release of the Nag Task List
+Manager version H5 (4.2.5).
+
+Nag is a web-based application built upon the Horde Application Framework which
+provides a simple, clean interface for managing online task lists (i.e., todo
+lists). It also includes CalDAV support, strong integration with the other
+Horde applications, and allows users to share task lists or enable light-weight
+project management.
+
+For upgrading instructions, please see
+http://www.horde.org/apps/nag/docs/UPGRADING
+
+For detailed installation and configuration instructions, please see
+http://www.horde.org/apps/nag/docs/INSTALL
+
+The major changes compared to the Nag version H5 (4.2.4) are:
+    * Don't delete existing completions when editing recurring tasks.
+    * Small bugfixes and improvements.
+ML;
+
+$notes['name'] = 'Nag';
+$notes['branch'] = 'Horde 5';
+return $notes;
