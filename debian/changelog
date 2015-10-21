@@ -1,3 +1,9 @@
+php-horde-nag (4.2.5-3) UNRELEASED; urgency=medium
+
+  * Upgaded to debhelper compat 9
+
+ -- Mathieu Parent <sathieu@debian.org>  Wed, 21 Oct 2015 07:54:18 +0200
+
 php-horde-nag (4.2.5-2) unstable; urgency=medium
 
   * Remove XS-Testsuite header in d/control
