@@ -1,8 +1,9 @@
-php-horde-nag (4.2.5-3) UNRELEASED; urgency=medium
+php-horde-nag (4.2.6-1) UNRELEASED; urgency=medium
 
   * Upgaded to debhelper compat 9
+  * New upstream version 4.2.6
 
- -- Mathieu Parent <sathieu@debian.org>  Wed, 21 Oct 2015 07:54:18 +0200
+ -- Mathieu Parent <sathieu@debian.org>  Fri, 23 Oct 2015 06:27:38 +0200
 
 php-horde-nag (4.2.5-2) unstable; urgency=medium
 
