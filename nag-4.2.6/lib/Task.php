@@ -342,6 +342,17 @@ class Nag_Task
     }
 
     /**
+     * Deep clone so we can clone the child objects too.
+     *
+     */
+    public function __clone()
+    {
+        foreach ($this->children as $key => $value) {
+            $this->children[$key] = clone $value;
+        }
+    }
+
+    /**
      * Merges a task hash into this task object.
      *
      * @param array $task  A task hash.
@@ -362,6 +373,20 @@ class Nag_Task
             }
             $this->$key = $val;
         }
+    }
+
+    /**
+     * Disconnect this task from any child tasks. Used when building search
+     * result sets since child tasks will be re-added if they actually match
+     * the result, and there is no guarentee that a tasks's parent will
+     * be present in the result set.
+     */
+    public function orphan()
+    {
+        $this->children = array();
+        $this->_dict = array();
+        $this->lastChild = null;
+        $this->indent = null;
     }
 
     /**
@@ -392,12 +417,14 @@ class Nag_Task
      *
      * @param Nag_Task $task  A sub task.
      */
-    public function add(Nag_Task $task)
+    public function add(Nag_Task $task, $replace = false)
     {
         if (!isset($this->_dict[$task->id])) {
             $this->_dict[$task->id] = count($this->children);
             $task->parent = $this;
             $this->children[] = $task;
+        } elseif ($replace) {
+            $this->children[$this->_dict[$task->id]]= $task;
         }
     }
 
@@ -672,6 +699,26 @@ class Nag_Task
         }
         $this->_pointer = 0;
         $this->_inlist = false;
+    }
+
+    /**
+     * Return the task, if present anywhere in this tasklist, regardless of
+     * child depth.
+     *
+     * @param  string $taskId  The task id we are looking for.
+     *
+     * @return Nag_Task|false  The task object, if found. Otherwise false.
+     */
+    public function hasTask($taskId)
+    {
+        $this->reset();
+        while ($task = $this->each()) {
+            if ($task->id == $taskId) {
+                return $task;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -1046,14 +1093,26 @@ class Nag_Task
                 $json->r = $this->recurrence->toJson();
             }
 
-            try {
-                $share = $GLOBALS['nag_shares']->getShare($this->tasklist);
-            } catch (Horde_Share_Exception $e) {
-                Horde::log($e->getMessage(), 'ERR');
-                throw new Nag_Exception($e);
+            if ($this->tasklist == '**EXTERNAL**') {
+                $json->vl = (string)$this->view_link;
+                $json->cl = (string)$this->complete_link;
+                $json->pe = $json->pd = false;
+            } else {
+                try {
+                    $share = $GLOBALS['nag_shares']->getShare($this->tasklist);
+                } catch (Horde_Share_Exception $e) {
+                    Horde::log($e->getMessage(), 'ERR');
+                    throw new Nag_Exception($e);
+                }
+                $json->pe = $share->hasPermission(
+                    $GLOBALS['registry']->getAuth(),
+                    Horde_Perms::EDIT
+                );
+                $json->pd = $share->hasPermission(
+                    $GLOBALS['registry']->getAuth(),
+                    Horde_Perms::DELETE
+                );
             }
-            $json->pe = $share->hasPermission($GLOBALS['registry']->getAuth(), Horde_Perms::EDIT);
-            $json->pd = $share->hasPermission($GLOBALS['registry']->getAuth(), Horde_Perms::DELETE);
         }
 
         return $json;
