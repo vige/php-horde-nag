@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
 Uploaders: Mathieu Parent <sathieu@debian.org>
 Build-Depends: debhelper (>= 9), pkg-php-tools, pear-horde-channel, php-horde-role
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: http://www.horde.org/
 Vcs-Git: git://anonscm.debian.org/pkg-horde/PEAR/php-horde-nag.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-horde/PEAR/php-horde-nag.git
