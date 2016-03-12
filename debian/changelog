@@ -3,8 +3,9 @@ php-horde-nag (4.2.7-2) UNRELEASED; urgency=medium
   * Update Standards-Version to 3.9.7, no change
   * Use secure Vcs-* fields
   * Rebuild with newer pkg-php-tools for the PHP 7 transition
+  * Replace php5-* by php-* in d/tests/control
 
- -- Mathieu Parent <sathieu@debian.org>  Sat, 12 Mar 2016 21:50:29 +0100
+ -- Mathieu Parent <sathieu@debian.org>  Sat, 12 Mar 2016 21:56:44 +0100
 
 php-horde-nag (4.2.7-1) unstable; urgency=medium
 
