@@ -22,10 +22,10 @@
   <email>chuck@horde.org</email>
   <active>false</active>
  </lead>
- <date>2016-02-02</date>
- <time>13:08:32</time>
+ <date>2016-04-05</date>
+ <time>12:11:41</time>
  <version>
-  <release>4.2.7</release>
+  <release>4.2.9</release>
   <api>4.2.0</api>
  </version>
  <stability>
@@ -34,15 +34,8 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [mjr] Enforce child tasks must be completed before parent tasks in edit form (Bug #12308).
-* [jan] Use access rules compatible with both Apache 2.2 and 2.4.
-* [mjr] Fix possible fatal error due to tasks created with an alarm but no due date (Bug #14214).
-* [mjr] Fix storage of parent field when using Kolab driver (Bug #14197, mike.gabriel@das-netzwerkteam.de).
-* [mjr] Fix switching tab/filters when using Kolab driver (Bug #14196, mike.gabriel@das-netzwerkteam.de).
-* [mjr] Fix moving subtasks to another tasklist when parent task is moved (Bug #14209).
-* [mjr] Fix fatal error when saving tasks when system shares are present in certain cases.
-* [mjr] Return recurring tasks via listTimeObjects API (Bug #14137).
-* [mjr] Prevent orphaning tasks via the API.
+* [jan] Fix regression with date picker in tasks form (Bug #14303).
+* [mjr] Fix handling EAS categories/tags.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -70,11 +63,11 @@
    <file baseinstalldir="/" md5sum="582c1b699db95f8e7e295b6a60d30045" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="cd34836804ccc60e64955bec45873cda" name="docs/CHANGES" role="doc" />
-   <file baseinstalldir="/" md5sum="1e1c3c3ce04ceb23880360a46ff485d8" name="docs/CREDITS" role="doc" />
+   <file baseinstalldir="/" md5sum="0030946b595e887a13fcfee0b290c047" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="bc9274f7c2e388e65f4f97fbc8047e06" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="6fc7c1f6c8c60fed56d9113a4911bdb4" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="62d1bed800436fc87c1cc23f8ec94c99" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="946721853fb76bf5ddaa6b2c37373494" name="js/calendar.js" role="horde" />
@@ -107,12 +100,12 @@
    <file baseinstalldir="/" md5sum="d4e87b151fa7db06fc4eab491bac8a32" name="lib/Tasklists/Base.php" role="horde" />
    <file baseinstalldir="/" md5sum="dd66150e8655beef0d9e2bfa1899d5a3" name="lib/Tasklists/Default.php" role="horde" />
    <file baseinstalldir="/" md5sum="d66209ec06a4fa4828e592eb4f5d0233" name="lib/Tasklists/Kolab.php" role="horde" />
-   <file baseinstalldir="/" md5sum="dffe0863d9f7057980cea5522600b95a" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="f087773e714c48240e9d10e2901da891" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="8ea9552d90899e616663f9f6d81b84f1" name="lib/View/Helper/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="ba531769f4524ac6dc9e226e7f859b43" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="f5a271e285ee67261f914f7982fdfa5a" name="lib/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="9dd2b2e1fc475064797fd992c6a16ea6" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="6f780f5d0b135ec39c0117c2ad6c7c7f" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="c6af5941a5ab11688d7aaeb33b8527b8" name="lib/Api.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8dac805ff735f73250ae395a3e990548" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="1debdde9ca08bf47a98fb8905bc9b9d1" name="lib/CompleteTask.php" role="horde" />
    <file baseinstalldir="/" md5sum="fca7aa767b443b807abe9c979b433cef" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="46e6b2e9b21ae79eb44ebabd5deb9ff8" name="lib/Exception.php" role="horde" />
@@ -122,7 +115,7 @@
    <file baseinstalldir="/" md5sum="9ceb57d39951a17320b0e7dc90548b0c" name="lib/Smartmobile.php" role="horde" />
    <file baseinstalldir="/" md5sum="45692a53691765405a8f6c4d8f2a9a48" name="lib/TagBrowser.php" role="horde" />
    <file baseinstalldir="/" md5sum="c15232e8f7c5e02a5ddd18f9b6d850b4" name="lib/Tagger.php" role="horde" />
-   <file baseinstalldir="/" md5sum="e8c67e0ec90dc1e5692905dbddcc4241" name="lib/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="15dad67ab89cfad72e2cdbc6b90870ed" name="lib/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="66979c4865d79c65e8fb3955e02b9535" name="lib/Tasklist.php" role="horde" />
    <file baseinstalldir="/" md5sum="c73885a7700b81e07af5a99f9fd5f329" name="locale/ar/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="412935d3715fe47c770ef9e7407897bc" name="locale/ar/LC_MESSAGES/nag.po" role="horde" />
@@ -138,8 +131,8 @@
    <file baseinstalldir="/" md5sum="6a04cbcd3039ecaaa9f5c49eec085e75" name="locale/de/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="60616828e0d4711c2b6fb28f1a70fc40" name="locale/de/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="bc8c563a66689c1b503521fc2d4bc12a" name="locale/de/help.xml" role="horde" />
-   <file baseinstalldir="/" md5sum="c11bc40fcb1b8319aa8e33101507fd7c" name="locale/el/LC_MESSAGES/nag.mo" role="horde" />
-   <file baseinstalldir="/" md5sum="c52be431df8b59ca2ef4b0ed89f30db2" name="locale/el/LC_MESSAGES/nag.po" role="horde" />
+   <file baseinstalldir="/" md5sum="4b1d10a41a7b429685d2503eeb48e8cd" name="locale/el/LC_MESSAGES/nag.mo" role="horde" />
+   <file baseinstalldir="/" md5sum="708a14cc35b5fc3f34381ab695d7eed9" name="locale/el/LC_MESSAGES/nag.po" role="horde" />
    <file baseinstalldir="/" md5sum="c875b904c9dcc62a7c8d8236ae4e7a80" name="locale/en/help.xml" role="horde" />
    <file baseinstalldir="/" md5sum="b4164469f4068f4ae5fa3b45b58c6f92" name="locale/es/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="352c2656178f488c1b075ff02f75dd17" name="locale/es/LC_MESSAGES/nag.po" role="horde" />
@@ -241,7 +234,7 @@
    <file baseinstalldir="/" md5sum="63420be76943f8b9b8268f63cc847ec8" name="templates/smartmobile/taskform.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="f92d1a147ec7011b7fbe3bf9338db792" name="templates/view/task.inc" role="horde" />
    <file baseinstalldir="/" md5sum="f5a271e285ee67261f914f7982fdfa5a" name="templates/.htaccess" role="horde" />
-   <file baseinstalldir="/" md5sum="a7f290824f7601f42ef2bbc1b3a089bb" name="templates/javascript_defs.php" role="horde" />
+   <file baseinstalldir="/" md5sum="7f128c9365cf66437c93c1ab5f6407e4" name="templates/javascript_defs.php" role="horde" />
    <file baseinstalldir="/" md5sum="dd70015977412e522682e3e9a41fa506" name="templates/list.html.php" role="horde" />
    <file baseinstalldir="/" md5sum="0d2dda541597dab0fa58ba29197fad2c" name="templates/quick.inc" role="horde" />
    <file baseinstalldir="/" md5sum="da9857d0ba537eb260d54af5d82bcfd6" name="test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php" role="test" />
@@ -1508,6 +1501,38 @@
 * [mjr] Fix fatal error when saving tasks when system shares are present in certain cases.
 * [mjr] Return recurring tasks via listTimeObjects API (Bug #14137).
 * [mjr] Prevent orphaning tasks via the API.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.8</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2016-03-21</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [mjr] Honor date_format prefs in Task form (Bug #14287).
+* [jan] Update Greek translation (Limperis Antonis &lt;limperis@cti.gr&gt;).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.9</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2016-04-05</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Fix regression with date picker in tasks form (Bug #14303).
+* [mjr] Fix handling EAS categories/tags.
    </notes>
   </release>
  </changelog>
