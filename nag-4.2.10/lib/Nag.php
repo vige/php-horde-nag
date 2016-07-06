@@ -159,7 +159,7 @@ class Nag
         // strptime() is locale dependent, i.e. %p is not always matching
         // AM/PM. Set the locale to C to workaround this, but grab the
         // locale's D_FMT before that.
-        $format = Horde_Nls::getLangInfo(D_FMT);
+        $format = $GLOBALS['prefs']->getValue('date_format_mini');
         if ($withtime) {
             $format .= ' '
                 . ($GLOBALS['prefs']->getValue('twentyFour') ? '%H:%M' : '%I:%M %p');
@@ -1698,7 +1698,7 @@ class Nag
         $cs = unserialize($GLOBALS['prefs']->getValue('sync_lists'));
         if (!empty($cs)) {
             // Have a pref, make sure it's still available
-            $lists = self::listTasklists(false, Horde_Perms::EDIT);
+            $lists = self::listTasklists(false, Horde_Perms::DELETE);
             $cscopy = array_flip($cs);
             foreach ($cs as $c) {
                 if (empty($lists[$c])) {
