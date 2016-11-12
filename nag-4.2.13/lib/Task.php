@@ -666,7 +666,7 @@ class Nag_Task
      *
      * Takes recurring tasks into account.
      *
-     * @return Horde_Date  The next due date.
+     * @return Horde_Date|null  The next due date or null if no due date.
      */
     public function getNextDue()
     {
@@ -676,7 +676,10 @@ class Nag_Task
         if (!$this->recurs()) {
             return new Horde_Date($this->due);
         }
-        return $this->recurrence->nextActiveRecurrence($this->due);
+        if (!($nextActive = $this->recurrence->nextActiveRecurrence($this->due))) {
+            return null;
+        }
+        return $nextActive;
     }
 
     /**

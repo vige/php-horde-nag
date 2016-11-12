@@ -22,10 +22,10 @@
   <email>chuck@horde.org</email>
   <active>false</active>
  </lead>
- <date>2016-09-06</date>
- <time>18:21:13</time>
+ <date>2016-11-09</date>
+ <time>16:24:23</time>
  <version>
-  <release>4.2.11</release>
+  <release>4.2.13</release>
   <api>4.2.0</api>
  </version>
  <stability>
@@ -34,7 +34,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [mjr] Fix sorting recurring tasks by due date (Bug #14403).
+* [jan] Fix sorting by due date with PHP &lt; 5.5 (Bug #14507).
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -62,11 +62,11 @@
    <file baseinstalldir="/" md5sum="0bdb2e44471633ef17a20ee2b07a6896" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="28e5cd73aef4da2ddecc4b99a9d7ac19" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="a7eef2bdd8f89c479556b8ccdc000138" name="docs/CHANGES" role="doc" />
    <file baseinstalldir="/" md5sum="3c18ebbaa56846e55eba651e09d58083" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="ec1356cdcc4c7e9fbb58dc567e31f9c9" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="7fc73d17eebbb0954243bd2522732074" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="946721853fb76bf5ddaa6b2c37373494" name="js/calendar.js" role="horde" />
@@ -104,17 +104,17 @@
    <file baseinstalldir="/" md5sum="fa1f1d6feb8bfd4307d94eec2cc85a62" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="f5a271e285ee67261f914f7982fdfa5a" name="lib/.htaccess" role="horde" />
    <file baseinstalldir="/" md5sum="c6af5941a5ab11688d7aaeb33b8527b8" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="069be382ebeaa7fc69a9fe806b3dcf9c" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="0927f68e4ca1f14f5e2f3899c57909af" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="1debdde9ca08bf47a98fb8905bc9b9d1" name="lib/CompleteTask.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e4db34583fc77945f7e528a650e51fe" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="46e6b2e9b21ae79eb44ebabd5deb9ff8" name="lib/Exception.php" role="horde" />
-   <file baseinstalldir="/" md5sum="f4c0bc0afd579982aeeaad9a820e669e" name="lib/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="02784204ae503bb602c42b6c2dc563fa" name="lib/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="5e82052027dc0a6141af7569b72e5fc9" name="lib/QuickParser.php" role="horde" />
    <file baseinstalldir="/" md5sum="f9532f63b1391f45cb7bfa861d3b061d" name="lib/Search.php" role="horde" />
    <file baseinstalldir="/" md5sum="9ceb57d39951a17320b0e7dc90548b0c" name="lib/Smartmobile.php" role="horde" />
    <file baseinstalldir="/" md5sum="45692a53691765405a8f6c4d8f2a9a48" name="lib/TagBrowser.php" role="horde" />
    <file baseinstalldir="/" md5sum="c15232e8f7c5e02a5ddd18f9b6d850b4" name="lib/Tagger.php" role="horde" />
-   <file baseinstalldir="/" md5sum="0c90c5fb8942054b63b1b9ff34e8d853" name="lib/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="63cd48d2574fe39e3c99e96d618deed3" name="lib/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="66979c4865d79c65e8fb3955e02b9535" name="lib/Tasklist.php" role="horde" />
    <file baseinstalldir="/" md5sum="c73885a7700b81e07af5a99f9fd5f329" name="locale/ar/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="412935d3715fe47c770ef9e7407897bc" name="locale/ar/LC_MESSAGES/nag.po" role="horde" />
@@ -1566,6 +1566,36 @@
    <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
    <notes>
 * [mjr] Fix sorting recurring tasks by due date (Bug #14403).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.12</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2016-11-08</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [mjr] Fix fatal error caused by regression in sorting recurring tasks with due dates (Bug #14504).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.13</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2016-11-09</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Fix sorting by due date with PHP &lt; 5.5 (Bug #14507).
    </notes>
   </release>
  </changelog>
