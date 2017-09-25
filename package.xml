@@ -22,10 +22,10 @@
   <email>chuck@horde.org</email>
   <active>false</active>
  </lead>
- <date>2017-08-01</date>
- <time>13:19:42</time>
+ <date>2017-09-21</date>
+ <time>14:18:23</time>
  <version>
-  <release>4.2.15</release>
+  <release>4.2.17</release>
   <api>4.2.0</api>
  </version>
  <stability>
@@ -34,8 +34,9 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [jan] SECURITY: Fix open redirects.
-* [mjr] Fix handling of delayed start dates (Bug #14634).
+* [jan] SECURITY: Fix unauthorized access to task exports.
+* [jan] Fix regression when exporting single tags to iCalendar CATEGORIES.
+* [jan] Officially support PHP 7.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -63,16 +64,16 @@
    <file baseinstalldir="/" md5sum="6d030810c0921cae0b92ac54f33d299f" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="42f7432520f92ce19a07aaf4f59429c3" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="5abb13a2b3e0be5a2c032983f1a9a800" name="docs/CHANGES" role="doc" />
    <file baseinstalldir="/" md5sum="3c18ebbaa56846e55eba651e09d58083" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="c6576f410a1850f1afd3c9e968feadac" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="0aa065453ac050baf907018aaed6f5b2" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="c07427b540ee71095658c22e18410f4f" name="js/calendar.js" role="horde" />
    <file baseinstalldir="/" md5sum="4b0455361f499bd0414f3109a57e0271" name="js/smartmobile.js" role="horde" />
-   <file baseinstalldir="/" md5sum="7968323b22a6ee43c43f20b082cdf1e2" name="js/task.js" role="horde" />
+   <file baseinstalldir="/" md5sum="6df7758b04ba5bf12d01d1c0d339da54" name="js/task.js" role="horde" />
    <file baseinstalldir="/" md5sum="3316548b3a8763673de0a1ae3d420218" name="lib/Ajax/Application/Handler/Smartmobile.php" role="horde" />
    <file baseinstalldir="/" md5sum="096b3d038d1b365f280fdde5807dff6e" name="lib/Ajax/Imple/TagAutoCompleter.php" role="horde" />
    <file baseinstalldir="/" md5sum="026a9771cf1fd5824ef203ee9d77e68f" name="lib/Ajax/Application.php" role="horde" />
@@ -94,7 +95,7 @@
    <file baseinstalldir="/" md5sum="ecde3da3fa16e2c983f385c34d5a42e3" name="lib/Form/DeleteTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="83dd366e53cc4856aafa5ffc0b046afc" name="lib/Form/EditTaskList.php" role="horde" />
    <file baseinstalldir="/" md5sum="f93dcc05120f2dd529bf886d6306e662" name="lib/Form/Search.php" role="horde" />
-   <file baseinstalldir="/" md5sum="4836cbaafb0d6a252c7026cf38d49346" name="lib/Form/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="13198a4074dba1531a2bf95dfa73e85a" name="lib/Form/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="dec660ddfde4ba321994dc197fd01470" name="lib/LoginTasks/Task/PurgeCompleted.php" role="horde" />
    <file baseinstalldir="/" md5sum="29ffddb57d551a136111dd7bbc707819" name="lib/Prefs/Special/TaskAlarms.php" role="horde" />
    <file baseinstalldir="/" md5sum="d4e87b151fa7db06fc4eab491bac8a32" name="lib/Tasklists/Base.php" role="horde" />
@@ -105,17 +106,17 @@
    <file baseinstalldir="/" md5sum="1e6f2311bbb7270b243f0b47bc71233f" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="f5a271e285ee67261f914f7982fdfa5a" name="lib/.htaccess" role="horde" />
    <file baseinstalldir="/" md5sum="c6af5941a5ab11688d7aaeb33b8527b8" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="c4590dcc03756188131fd09e2ba1d22c" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="a0e4524a90132a09a58d0f8bc0cb9bd1" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="1debdde9ca08bf47a98fb8905bc9b9d1" name="lib/CompleteTask.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e4db34583fc77945f7e528a650e51fe" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="8b38eaf085da09df57cd73e0d2743c34" name="lib/Exception.php" role="horde" />
    <file baseinstalldir="/" md5sum="9b3d99fbb3e93063eaeb81e54b96395a" name="lib/Nag.php" role="horde" />
-   <file baseinstalldir="/" md5sum="5e82052027dc0a6141af7569b72e5fc9" name="lib/QuickParser.php" role="horde" />
+   <file baseinstalldir="/" md5sum="fb4740586a552e735704ee405cede130" name="lib/QuickParser.php" role="horde" />
    <file baseinstalldir="/" md5sum="c887398bd7365be3c866aff58a197b3c" name="lib/Search.php" role="horde" />
    <file baseinstalldir="/" md5sum="ca7b56077713a7b1c54506947b111d77" name="lib/Smartmobile.php" role="horde" />
    <file baseinstalldir="/" md5sum="f01cd256b36b861754699e6a4492199b" name="lib/TagBrowser.php" role="horde" />
    <file baseinstalldir="/" md5sum="05c625b8314b5dc6d891c0ee671918e4" name="lib/Tagger.php" role="horde" />
-   <file baseinstalldir="/" md5sum="63cd48d2574fe39e3c99e96d618deed3" name="lib/Task.php" role="horde" />
+   <file baseinstalldir="/" md5sum="5b14c65c6e263d59cb01bbedc92c5fd2" name="lib/Task.php" role="horde" />
    <file baseinstalldir="/" md5sum="66979c4865d79c65e8fb3955e02b9535" name="lib/Tasklist.php" role="horde" />
    <file baseinstalldir="/" md5sum="c73885a7700b81e07af5a99f9fd5f329" name="locale/ar/LC_MESSAGES/nag.mo" role="horde" />
    <file baseinstalldir="/" md5sum="412935d3715fe47c770ef9e7407897bc" name="locale/ar/LC_MESSAGES/nag.po" role="horde" />
@@ -293,8 +294,8 @@
   <required>
    <php>
     <min>5.3.0</min>
-    <max>6.0.0alpha1</max>
-    <exclude>6.0.0alpha1</exclude>
+    <max>8.0.0alpha1</max>
+    <exclude>8.0.0alpha1</exclude>
    </php>
    <pearinstaller>
     <min>1.7.0</min>
@@ -1636,6 +1637,43 @@
    <notes>
 * [jan] SECURITY: Fix open redirects.
 * [mjr] Fix handling of delayed start dates (Bug #14634).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.16</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2017-08-15</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] Fix parsing sub-tasks from the quick enter dialog (Bug #14681).
+* [jan] Fix positioning of due time drop down list (Bug #12288).
+* [jan] Improve compatibilty when synchronizing tasks via CalDAV/ICS (Bug #14057).
+* [jan] Fix exporting multiple tags to iCalendar CATEGORIES (Bug #14057).
+* [jan] Don&apos;t include external tasks into drop down list for parent tasks.
+* [jan] Fix redirecting to task list after completing a task (Bug #14678).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.17</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2017-09-21</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [jan] SECURITY: Fix unauthorized access to task exports.
+* [jan] Fix regression when exporting single tags to iCalendar CATEGORIES.
+* [jan] Officially support PHP 7.
    </notes>
   </release>
  </changelog>
