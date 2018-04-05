@@ -1,6 +1,6 @@
 Source: php-horde-nag
 Section: php
-Priority: extra
+Priority: optional
 Maintainer: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
 Uploaders: Mathieu Parent <sathieu@debian.org>
 Build-Depends: debhelper (>= 11), pkg-php-tools, pear-horde-channel, php-horde-role
