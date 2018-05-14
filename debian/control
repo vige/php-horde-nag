@@ -1,7 +1,7 @@
 Source: php-horde-nag
 Section: php
 Priority: optional
-Maintainer: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
+Maintainer: Horde Maintainers <team+debian-horde-team@tracker.debian.org>
 Uploaders: Mathieu Parent <sathieu@debian.org>
 Build-Depends: debhelper (>= 11), pkg-php-tools, pear-horde-channel, php-horde-role
 Standards-Version: 4.1.4
