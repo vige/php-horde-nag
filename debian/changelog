@@ -1,9 +1,9 @@
-php-horde-nag (4.2.17-3) UNRELEASED; urgency=medium
+php-horde-nag (4.2.17-3) unstable; urgency=medium
 
   * Update Standards-Version to 4.1.4, no change
   * Update Maintainer field
 
- -- Mathieu Parent <sathieu@debian.org>  Mon, 14 May 2018 22:29:54 +0200
+ -- Mathieu Parent <sathieu@debian.org>  Tue, 15 May 2018 16:31:08 +0200
 
 php-horde-nag (4.2.17-2) unstable; urgency=medium
 
