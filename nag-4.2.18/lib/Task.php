@@ -1236,6 +1236,7 @@ class Nag_Task
 
         if (isset($this->priority)) {
             $priorityMap = array(
+                0 => 5,
                 1 => 1,
                 2 => 3,
                 3 => 5,
@@ -1298,11 +1299,7 @@ class Nag_Task
         }
 
         if ($this->tags) {
-            if (count($this->tags) == 1) {
-                $vTodo->setAttribute('CATEGORIES', $this->tags[0]);
-            } else {
-                $vTodo->setAttribute('CATEGORIES', '', array(), true, $this->tags);
-            }
+            $vTodo->setAttribute('CATEGORIES', '', array(), true, array_values($this->tags));
         }
 
         /* Get the task's history. */
@@ -1355,25 +1352,27 @@ class Nag_Task
 
         /* Notes and Title */
         if ($options['protocolversion'] >= Horde_ActiveSync::VERSION_TWELVE) {
-            $bp = $options['bodyprefs'];
-            $body = new Horde_ActiveSync_Message_AirSyncBaseBody();
-            $body->type = Horde_ActiveSync::BODYPREF_TYPE_PLAIN;
-            if (isset($bp[Horde_ActiveSync::BODYPREF_TYPE_PLAIN]['truncationsize'])) {
-                $truncation = $bp[Horde_ActiveSync::BODYPREF_TYPE_PLAIN]['truncationsize'];
-            } elseif (isset($bp[Horde_ActiveSync::BODYPREF_TYPE_HTML])) {
-                $truncation = $bp[Horde_ActiveSync::BODYPREF_TYPE_HTML]['truncationsize'];
-                $this->desc = Horde_Text_Filter::filter($this->desc, 'Text2html', array('parselevel' => Horde_Text_Filter_Text2html::MICRO));
-            } else {
-                $truncation = false;
+            if (!empty($this->desc)) {
+                $bp = $options['bodyprefs'];
+                $body = new Horde_ActiveSync_Message_AirSyncBaseBody();
+                $body->type = Horde_ActiveSync::BODYPREF_TYPE_PLAIN;
+                if (isset($bp[Horde_ActiveSync::BODYPREF_TYPE_PLAIN]['truncationsize'])) {
+                    $truncation = $bp[Horde_ActiveSync::BODYPREF_TYPE_PLAIN]['truncationsize'];
+                } elseif (isset($bp[Horde_ActiveSync::BODYPREF_TYPE_HTML])) {
+                    $truncation = $bp[Horde_ActiveSync::BODYPREF_TYPE_HTML]['truncationsize'];
+                    $this->desc = Horde_Text_Filter::filter($this->desc, 'Text2html', array('parselevel' => Horde_Text_Filter_Text2html::MICRO));
+                } else {
+                    $truncation = false;
+                }
+                if ($truncation && Horde_String::length($this->desc) > $truncation) {
+                    $body->data = Horde_String::substr($this->desc, 0, $truncation);
+                    $body->truncated = 1;
+                } else {
+                    $body->data = $this->desc;
+                }
+                $body->estimateddatasize = Horde_String::length($this->desc);
+                $message->airsyncbasebody = $body;
             }
-            if ($truncation && Horde_String::length($this->desc) > $truncation) {
-                $body->data = Horde_String::substr($this->desc, 0, $truncation);
-                $body->truncated = 1;
-            } else {
-                $body->data = $this->desc;
-            }
-            $body->estimateddatasize = Horde_String::length($this->desc);
-            $message->airsyncbasebody = $body;
         } else {
             $message->body = $this->desc;
         }
@@ -1381,7 +1380,9 @@ class Nag_Task
 
         /* Completion */
         if ($this->completed) {
-            $message->datecompleted = new Horde_Date($this->completed_date);
+            if ($this->completed_date) {
+                $message->datecompleted = new Horde_Date($this->completed_date);
+            }
             $message->complete = Horde_ActiveSync_Message_Task::TASK_COMPLETE_TRUE;
         } else {
             $message->complete = Horde_ActiveSync_Message_Task::TASK_COMPLETE_FALSE;
@@ -1389,13 +1390,17 @@ class Nag_Task
 
         /* Due Date */
         if (!empty($this->due)) {
-            $message->utcduedate = new Horde_Date($this->due);
+            if ($this->due) {
+                $message->utcduedate = new Horde_Date($this->getNextDue());
+            }
             $message->duedate = clone($message->utcduedate);
         }
 
         /* Start Date */
         if (!empty($this->start)) {
-            $message->utcstartdate = new Horde_Date($this->start);
+            if ($this->start) {
+                $message->utcstartdate = new Horde_Date($this->start);
+            }
             $message->startdate = clone($message->utcstartdate);
         }
 
@@ -1614,7 +1619,8 @@ class Nag_Task
         $this->name = $message->subject;
         $tz = date_default_timezone_get();
 
-        /* Completion */
+        /* Completion: Note we don't use self::toggleCompletion() becuase of
+         * the way that EAS hanldes recurring tasks (see below). */
         if ($this->completed = $message->complete) {
             if ($message->datecompleted) {
                 $message->datecompleted->setTimezone($tz);
@@ -1685,15 +1691,25 @@ class Nag_Task
             $this->alarm = ($this->due - $alarm->timestamp()) / 60;
         }
 
-        if ($rrule = $message->getRecurrence()) {
-            $this->recurrence = $rrule;
-        }
-
         $this->tasklist = $GLOBALS['prefs']->getValue('default_tasklist');
 
         /* Categories */
         if (is_array($message->categories) && count($message->categories)) {
             $this->tags = implode(',', $message->categories);
+        }
+
+        // Recurrence is handled by the client deleting the original event
+        // and recreating a "dead" completed event and an active recurring
+        // event with the first due date being the next due date in the
+        // series. So, if deadoccur is set, we have to ignore the recurrence
+        // properties. Otherwise, editing the "dead" occurance will recreate
+        // a completely new recurring series on the client.
+        if (!($message->recurrence && $message->recurrence->deadoccur) &&
+            !$message->deadoccur) {
+
+            if ($rrule = $message->getRecurrence()) {
+                $this->recurrence = $rrule;
+            }
         }
     }
 
