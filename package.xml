@@ -22,10 +22,10 @@
   <email>chuck@horde.org</email>
   <active>no</active>
  </lead>
- <date>2018-07-04</date>
- <time>13:58:47</time>
+ <date>2018-09-28</date>
+ <time>12:48:10</time>
  <version>
-  <release>4.2.18</release>
+  <release>4.2.19</release>
   <api>4.2.0</api>
  </version>
  <stability>
@@ -34,10 +34,7 @@
  </stability>
  <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
  <notes>
-* [mjr] Fix handling of recurring task completion over EAS.
-* [mjr] Fix issue with NULL created dates breaking EAS.
-* [jan] Fix notice when re-exporting tasks without priority (Bug #14699).
-* [jan] Fix regression in exporting single tags to iCalendar CATEGORIES (Bug #14699).
+* [mjr] SECURITY: Fix multiple XSS vulnerabilities when displaying and filtering task lists.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -65,11 +62,11 @@
    <file baseinstalldir="/" md5sum="6d030810c0921cae0b92ac54f33d299f" name="config/prefs.php" role="horde" />
    <file baseinstalldir="/" md5sum="a188e4cbbf8a094be75ffa9598388331" name="config/routes.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e516081908be48ac64096c6eabe5f58" name="docs/vtodo/todo.ics" role="doc" />
-   <file baseinstalldir="/" md5sum="cb517f216e475c62832aa22b98e08ec2" name="docs/CHANGES" role="doc" />
+   <file baseinstalldir="/" md5sum="92fb832972ae066db74a97bf324980a6" name="docs/CHANGES" role="doc" />
    <file baseinstalldir="/" md5sum="3c18ebbaa56846e55eba651e09d58083" name="docs/CREDITS" role="doc" />
    <file baseinstalldir="/" md5sum="83c4d16664d29df0ba6b19010aa04851" name="docs/INSTALL" role="doc" />
    <file baseinstalldir="/" md5sum="37360ce9d73df755befbab3b7692abd8" name="docs/lighttpd-nag.conf" role="doc" />
-   <file baseinstalldir="/" md5sum="f29cdeb3bd9f454130e1e356cbb76e60" name="docs/RELEASE_NOTES" role="doc" />
+   <file baseinstalldir="/" md5sum="3ed55a257f06e1ef4b09298b610034f1" name="docs/RELEASE_NOTES" role="doc" />
    <file baseinstalldir="/" md5sum="9b737acf22437b4dc99a25815f9a53f2" name="docs/TODO" role="doc" />
    <file baseinstalldir="/" md5sum="2dc29140d806bf5112885575aac17da6" name="docs/UPGRADING" role="doc" />
    <file baseinstalldir="/" md5sum="c07427b540ee71095658c22e18410f4f" name="js/calendar.js" role="horde" />
@@ -102,12 +99,12 @@
    <file baseinstalldir="/" md5sum="d4e87b151fa7db06fc4eab491bac8a32" name="lib/Tasklists/Base.php" role="horde" />
    <file baseinstalldir="/" md5sum="dd66150e8655beef0d9e2bfa1899d5a3" name="lib/Tasklists/Default.php" role="horde" />
    <file baseinstalldir="/" md5sum="d66209ec06a4fa4828e592eb4f5d0233" name="lib/Tasklists/Kolab.php" role="horde" />
-   <file baseinstalldir="/" md5sum="6b6c1374420628ef78c207c7f97506af" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
+   <file baseinstalldir="/" md5sum="eb7bc3df20163ddbb80ba87b1189db54" name="lib/Ui/VarRenderer/Nag.php" role="horde" />
    <file baseinstalldir="/" md5sum="8ea9552d90899e616663f9f6d81b84f1" name="lib/View/Helper/List.php" role="horde" />
-   <file baseinstalldir="/" md5sum="1e6f2311bbb7270b243f0b47bc71233f" name="lib/View/List.php" role="horde" />
+   <file baseinstalldir="/" md5sum="8c83cfc94196f557e418199962ffad76" name="lib/View/List.php" role="horde" />
    <file baseinstalldir="/" md5sum="f5a271e285ee67261f914f7982fdfa5a" name="lib/.htaccess" role="horde" />
    <file baseinstalldir="/" md5sum="c6af5941a5ab11688d7aaeb33b8527b8" name="lib/Api.php" role="horde" />
-   <file baseinstalldir="/" md5sum="503bb0c17b66eda89f12b466e3b6c6ba" name="lib/Application.php" role="horde" />
+   <file baseinstalldir="/" md5sum="1cea6c902e333e3065c891283ecb76b9" name="lib/Application.php" role="horde" />
    <file baseinstalldir="/" md5sum="1debdde9ca08bf47a98fb8905bc9b9d1" name="lib/CompleteTask.php" role="horde" />
    <file baseinstalldir="/" md5sum="9e4db34583fc77945f7e528a650e51fe" name="lib/Driver.php" role="horde" />
    <file baseinstalldir="/" md5sum="8b38eaf085da09df57cd73e0d2743c34" name="lib/Exception.php" role="horde" />
@@ -2445,6 +2442,21 @@
 * [mjr] Fix issue with NULL created dates breaking EAS.
 * [jan] Fix notice when re-exporting tasks without priority (Bug #14699).
 * [jan] Fix regression in exporting single tags to iCalendar CATEGORIES (Bug #14699).
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>4.2.19</release>
+    <api>4.2.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2018-09-28</date>
+   <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
+   <notes>
+* [mjr] SECURITY: Fix multiple XSS vulnerabilities when displaying and filtering task lists.
    </notes>
   </release>
   <release>
