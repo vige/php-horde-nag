@@ -1,3 +1,10 @@
+php-horde-nag (4.2.19-3) UNRELEASED; urgency=medium
+
+  * d/control: Add to Uploaders: Mike Gabriel.
+  * d/control: Drop from Uploaders: Debian QA Group.
+
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Sat, 02 May 2020 08:54:44 +0200
+
 php-horde-nag (4.2.19-2) unstable; urgency=medium
 
   * Bump debhelper from old 11 to 12.
