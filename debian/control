@@ -5,7 +5,7 @@ Maintainer: Horde Maintainers <team+debian-horde-team@tracker.debian.org>
 Uploaders:
  Mike Gabriel <sunweaver@debian.org>,
 Build-Depends: pkg-php-tools, pear-horde-channel, php-horde-role, debhelper-compat (= 12)
-Standards-Version: 4.1.4
+Standards-Version: 4.5.0
 Homepage: http://www.horde.org/
 Vcs-Git: https://salsa.debian.org/horde-team/php-horde-nag.git
 Vcs-Browser: https://salsa.debian.org/horde-team/php-horde-nag
