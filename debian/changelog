@@ -1,5 +1,7 @@
 php-horde-nag (4.2.19-3) UNRELEASED; urgency=medium
 
+  * Re-upload to Debian. (Closes: #959322).
+
   * d/control: Add to Uploaders: Mike Gabriel.
   * d/control: Drop from Uploaders: Debian QA Group.
 
