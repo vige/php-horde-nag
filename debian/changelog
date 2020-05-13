@@ -4,8 +4,13 @@ php-horde-nag (4.2.19-3) UNRELEASED; urgency=medium
 
   * d/control: Add to Uploaders: Mike Gabriel.
   * d/control: Drop from Uploaders: Debian QA Group.
+  * d/control: Bump Standards-Version: to 4.5.0. No changes needed.
+  * d/control: Add Rules-Requires-Root: field and set it to 'no'.
+  * d/upstream/metadata: Add file. Comply with DEP-12.
+  * d/tests/control: Stop using deprecated needs-recommends restriction.
+  * d/copyright: Update copyright attributions.
 
- -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Sat, 02 May 2020 08:54:44 +0200
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 13 May 2020 17:10:32 +0200
 
 php-horde-nag (4.2.19-2) unstable; urgency=medium
 
