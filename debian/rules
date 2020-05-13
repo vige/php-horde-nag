@@ -6,6 +6,10 @@ DESTDIR=$(CURDIR)/debian/php-horde-$(HORDENAME)
 %:
 	dh $@ --buildsystem=phppear --with phppear
 
+override_dh_install:
+	dh_install
+	rm $(CURDIR)/debian/php-horde-nag/usr/share/doc/php-horde-nag/INSTALL*
+
 override_dh_link:
 	dh_link
 	dh_installdirs etc/horde
