@@ -3,6 +3,7 @@ Section: php
 Priority: optional
 Maintainer: Horde Maintainers <team+debian-horde-team@tracker.debian.org>
 Uploaders:
+ Juri Grabowski <debian@jugra.de>,
  Mike Gabriel <sunweaver@debian.org>,
 Build-Depends: pkg-php-tools, pear-horde-channel, php-horde-role, debhelper-compat (= 12)
 Standards-Version: 4.5.0
