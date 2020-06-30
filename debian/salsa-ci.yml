@@ -5,3 +5,6 @@ include:
 
 variables:
   SALSA_CI_DISABLE_APTLY: 0
+
+autopkgtest:
+  allow_failure: true
