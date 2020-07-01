@@ -1,3 +1,16 @@
+php-horde-nag (4.2.19-4) UNRELEASED; urgency=medium
+
+  [ Mike Gabriel ]
+  * d/control: Add to Uploaders: Juri Grabowski.
+  * d/control: Bump DH compat level to version 13.
+  * d/salsa-ci.yml: Add file with salsa-ci.yml and pipeline-jobs.yml calls.
+
+  [ Juri Grabowski ]
+  * d/salsa-ci.yml: enable aptly
+  * d/salsa-ci.yml: allow_failure on autopkgtest.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 01 Jul 2020 12:33:36 +0200
+
 php-horde-nag (4.2.19-3) unstable; urgency=medium
 
   * Re-upload to Debian. (Closes: #959322).
