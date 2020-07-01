@@ -1,4 +1,4 @@
-php-horde-nag (4.2.19-4) UNRELEASED; urgency=medium
+php-horde-nag (4.2.19-4) unstable; urgency=medium
 
   [ Mike Gabriel ]
   * d/control: Add to Uploaders: Juri Grabowski.
@@ -9,7 +9,7 @@ php-horde-nag (4.2.19-4) UNRELEASED; urgency=medium
   * d/salsa-ci.yml: enable aptly
   * d/salsa-ci.yml: allow_failure on autopkgtest.
 
- -- Mike Gabriel <sunweaver@debian.org>  Wed, 01 Jul 2020 12:33:36 +0200
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 01 Jul 2020 12:50:51 +0200
 
 php-horde-nag (4.2.19-3) unstable; urgency=medium
 
