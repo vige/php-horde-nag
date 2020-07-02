@@ -16,3 +16,10 @@ override_dh_link:
 	# config of "nag" app:
 	mv $(DESTDIR)/usr/share/horde/$(HORDENAME)/config $(DESTDIR)/etc/horde/$(HORDENAME)
 	dh_link etc/horde/$(HORDENAME) usr/share/horde/$(HORDENAME)/config
+	# themes
+	dh_installdirs etc/horde/themes-available.d/default/$(HORDENAME)/
+	mv $(DESTDIR)/usr/share/horde/$(HORDENAME)/themes/default/* $(DESTDIR)/etc/horde/themes-available.d/default/$(HORDENAME)/
+	rmdir $(DESTDIR)/usr/share/horde/$(HORDENAME)/themes/default/
+	rmdir $(DESTDIR)/usr/share/horde/$(HORDENAME)/themes/
+	dh_link etc/horde/themes-enabled.d/$(HORDENAME) usr/share/horde/$(HORDENAME)/themes
+	dh_link etc/horde/themes-available.d/default/$(HORDENAME) etc/horde/themes-enabled.d/$(HORDENAME)/default
