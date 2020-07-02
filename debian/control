@@ -15,7 +15,9 @@ Vcs-Browser: https://salsa.debian.org/horde-team/php-horde-nag
 Package: php-horde-nag
 Architecture: all
 Provides: nag
-Depends: ${misc:Depends}, ${phppear:Debian-Depends}
+Depends: ${misc:Depends},
+         ${phppear:Debian-Depends},
+         php-horde (>= 5.2.23+debian0-2~),
 Recommends: ${phppear:Debian-Recommends}
 Breaks: ${phppear:Debian-Breaks}
 Description: ${phppear:summary}
