@@ -1,0 +1,1 @@
+dir_to_symlink /usr/share/horde/nag/themes /etc/horde/themes-enabled.d/nag 4.2.19-5~ php-horde-nag
