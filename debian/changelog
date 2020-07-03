@@ -1,9 +1,10 @@
-php-horde-nag (4.2.19-5) UNRELEASED; urgency=medium
+php-horde-nag (4.2.19-5) unstable; urgency=medium
 
-  * d/control: Enforce versioned D on php-horde (>= 5.2.23+debian0-1~).
+  * d/control: Enforce versioned D on php-horde (>= 5.2.23+debian0-2~).
   * d/rules: Move theme files to /etc/horde/.
+  * d/maintscript: Turn /usr/share/horde/nag/themes/ into symlink.
 
- -- Mike Gabriel <sunweaver@debian.org>  Thu, 02 Jul 2020 21:35:53 +0200
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 03 Jul 2020 23:58:45 +0200
 
 php-horde-nag (4.2.19-4) unstable; urgency=medium
 
