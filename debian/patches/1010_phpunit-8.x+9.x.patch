@@ -1,0 +1,238 @@
+Description: Adapt to PHPUnit 8.x and 9.x API.
+Author: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+
+Index: php-horde-nag/nag-4.2.19/test/Nag/TestCase.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/TestCase.php
++++ php-horde-nag/nag-4.2.19/test/Nag/TestCase.php
+@@ -28,9 +28,9 @@
+  * @license    http://www.horde.org/licenses/gpl GNU General Public License, version 2
+  */
+ class Nag_TestCase
+-extends PHPUnit_Framework_TestCase
++extends Horde_Test_Case
+ {
+-    public function setUp()
++    public function setUp(): void
+     {
+         $this->markTestIncomplete('Needs some love');
+     }
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
+@@ -46,20 +46,20 @@ class Nag_Unit_Driver_Base extends Nag_T
+      */
+     private $_added = array();
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         self::$setup = new Horde_Test_Setup();
+         self::createBasicNagSetup(self::$setup);
+         parent::setUpBeforeClass();
+     }
+ 
+-    public static function tearDownAfterClass()
++    public static function tearDownAfterClass(): void
+     {
+         self::$driver = null;
+         parent::tearDownAfterClass();
+     }
+ 
+-    public function setUp()
++    public function setUp(): void
+     {
+         parent::setUp();
+         $error = self::$setup->getError();
+@@ -68,7 +68,7 @@ class Nag_Unit_Driver_Base extends Nag_T
+         }
+     }
+ 
+-    public function tearDown()
++    public function tearDown(): void
+     {
+         parent::tearDown();
+         foreach ($this->_added as $added) {
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_KolabTest extends
+ {
+     protected $backupGlobals = false;
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         return;
+ 
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Base extends N
+ {
+     static $callback;
+ 
+-    static public function setUpBeforeClass()
++    static public function setUpBeforeClass(): void
+     {
+         return;
+ 
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Pdo_SqliteTest
+ {
+     protected $backupGlobals = false;
+ 
+-    static public function setUpBeforeClass()
++    static public function setUpBeforeClass(): void
+     {
+         self::$callback = array(__CLASS__, 'getDb');
+         parent::setUpBeforeClass();
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
+@@ -29,7 +29,7 @@
+  */
+ class Nag_Unit_Factory_TasklistsTest extends Nag_TestCase
+ {
+-    public function setUp()
++    public function setUp(): void
+     {
+         parent::setUp();
+         $setup = self::createKolabSetup();
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
+@@ -38,14 +38,14 @@ class Nag_Unit_Form_Task_Base extends Na
+ 
+     private $_old_errorreporting;
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         self::$setup = new Horde_Test_Setup();
+         self::createBasicNagSetup(self::$setup);
+         parent::setUpBeforeClass();
+     }
+ 
+-    public function setUp()
++    public function setUp(): void
+     {
+         parent::setUp();
+ 
+@@ -58,7 +58,7 @@ class Nag_Unit_Form_Task_Base extends Na
+         error_reporting(E_ALL & ~(E_STRICT | E_DEPRECATED));
+     }
+ 
+-    public function tearDown()
++    public function tearDown(): void
+     {
+         error_reporting($this->_old_errorreporting);
+         parent::tearDown();
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Form_Task_KolabTest exten
+ {
+     protected $backupGlobals = false;
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         return;
+ 
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
+@@ -29,7 +29,7 @@
+  */
+ abstract class Nag_Unit_Form_Task_Sql_Base extends Nag_Unit_Form_Task_Base
+ {
+-    static public function setUpBeforeClass()
++    static public function setUpBeforeClass(): void
+     {
+         return;
+ 
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
+@@ -43,13 +43,13 @@ class Nag_Unit_Nag_Base extends Nag_Test
+      */
+     protected $default_name = 'Task list of test@example.com';
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         self::createBasicNagSetup(self::$setup);
+         parent::setUpBeforeClass();
+     }
+ 
+-    public function setUp()
++    public function setUp(): void
+     {
+         parent::setUp();
+         $error = self::$setup->getError();
+@@ -58,7 +58,7 @@ class Nag_Unit_Nag_Base extends Nag_Test
+         }
+     }
+ 
+-    public function tearDown()
++    public function tearDown(): void
+     {
+         foreach ($GLOBALS['nag_shares']->listShares('test@example.com') as $share) {
+             $GLOBALS['nag_shares']->removeShare($share);
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
+@@ -38,7 +38,7 @@ class Nag_Unit_Nag_KolabTest extends Nag
+      */
+     protected $default_name = 'Tasks';
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         self::$setup = new Horde_Test_Setup();
+         parent::setUpBeforeClass();
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
+@@ -29,7 +29,7 @@
+  */
+ class Nag_Unit_Nag_Sql_Base extends Nag_Unit_Nag_Base
+ {
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         parent::setUpBeforeClass();
+         self::createSqlShares(self::$setup);
+Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
+===================================================================
+--- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
++++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Nag_Sql_Pdo_SqliteTest ex
+ {
+     protected $backupGlobals = false;
+ 
+-    public static function setUpBeforeClass()
++    public static function setUpBeforeClass(): void
+     {
+         self::$setup = new Horde_Test_Setup();
+         self::createSqlPdoSqlite(self::$setup);
+Index: php-horde-nag/nag-4.2.19/test/Nag/phpunit.xml
+===================================================================
+--- /dev/null
++++ php-horde-nag/nag-4.2.19/test/Nag/phpunit.xml
+@@ -0,0 +1 @@
++<phpunit bootstrap="bootstrap.php"></phpunit>
