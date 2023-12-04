@@ -1,0 +1,21 @@
+From: Ville Nummela <ville@nummela.org>
+Date: Mon, 4 Dec 2023 13:11:04 +0200
+Subject: PHP 8.0 compatibility fix
+
+---
+ nag-4.2.19/lib/Form/Task.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nag-4.2.19/lib/Form/Task.php b/nag-4.2.19/lib/Form/Task.php
+index f37a4c4..0bb1919 100644
+--- a/nag-4.2.19/lib/Form/Task.php
++++ b/nag-4.2.19/lib/Form/Task.php
+@@ -175,7 +175,7 @@ class Nag_Form_Task extends Horde_Form
+         $this->setButtons($buttons);
+     }
+ 
+-    public function renderActive()
++    public function renderActive($renderer = null, $vars = null, $action = '', $method = 'get', $enctype = null, $focus = true)
+     {
+         global $conf;
+ 

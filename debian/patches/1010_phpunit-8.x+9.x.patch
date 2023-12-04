@@ -1,10 +1,29 @@
-Description: Adapt to PHPUnit 8.x and 9.x API.
-Author: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+From: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+Date: Mon, 4 Dec 2023 13:09:29 +0200
+Subject: Adapt to PHPUnit 8.x and 9.x API.
 
-Index: php-horde-nag/nag-4.2.19/test/Nag/TestCase.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/TestCase.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/TestCase.php
+---
+ nag-4.2.19/test/Nag/TestCase.php                       | 4 ++--
+ nag-4.2.19/test/Nag/Unit/Driver/Base.php               | 8 ++++----
+ nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php          | 2 +-
+ nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php           | 2 +-
+ nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php | 2 +-
+ nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php     | 2 +-
+ nag-4.2.19/test/Nag/Unit/Form/Task/Base.php            | 6 +++---
+ nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php       | 2 +-
+ nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php        | 2 +-
+ nag-4.2.19/test/Nag/Unit/Nag/Base.php                  | 6 +++---
+ nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php             | 2 +-
+ nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php              | 2 +-
+ nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php    | 2 +-
+ nag-4.2.19/test/Nag/phpunit.xml                        | 1 +
+ 14 files changed, 22 insertions(+), 21 deletions(-)
+ create mode 100644 nag-4.2.19/test/Nag/phpunit.xml
+
+diff --git a/nag-4.2.19/test/Nag/TestCase.php b/nag-4.2.19/test/Nag/TestCase.php
+index 23ba2e5..ae1533e 100644
+--- a/nag-4.2.19/test/Nag/TestCase.php
++++ b/nag-4.2.19/test/Nag/TestCase.php
 @@ -28,9 +28,9 @@
   * @license    http://www.horde.org/licenses/gpl GNU General Public License, version 2
   */
@@ -17,11 +36,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/TestCase.php
      {
          $this->markTestIncomplete('Needs some love');
      }
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
-@@ -46,20 +46,20 @@ class Nag_Unit_Driver_Base extends Nag_T
+diff --git a/nag-4.2.19/test/Nag/Unit/Driver/Base.php b/nag-4.2.19/test/Nag/Unit/Driver/Base.php
+index 206dc36..24b7135 100644
+--- a/nag-4.2.19/test/Nag/Unit/Driver/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Driver/Base.php
+@@ -46,20 +46,20 @@ class Nag_Unit_Driver_Base extends Nag_TestCase
       */
      private $_added = array();
  
@@ -45,7 +64,7 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
      {
          parent::setUp();
          $error = self::$setup->getError();
-@@ -68,7 +68,7 @@ class Nag_Unit_Driver_Base extends Nag_T
+@@ -68,7 +68,7 @@ class Nag_Unit_Driver_Base extends Nag_TestCase
          }
      }
  
@@ -54,11 +73,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Base.php
      {
          parent::tearDown();
          foreach ($this->_added as $added) {
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
-@@ -31,7 +31,7 @@ class Nag_Unit_Driver_KolabTest extends
+diff --git a/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php b/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
+index e4142e1..29393fd 100644
+--- a/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_KolabTest extends Nag_Unit_Driver_Base
  {
      protected $backupGlobals = false;
  
@@ -67,11 +86,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/KolabTest.php
      {
          return;
  
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
-@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Base extends N
+diff --git a/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php b/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
+index d061ef0..cd7cc14 100644
+--- a/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Base extends Nag_Unit_Driver_Base
  {
      static $callback;
  
@@ -80,11 +99,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Base.php
      {
          return;
  
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
-@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Pdo_SqliteTest
+diff --git a/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php b/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
+index d10fbac..10a48df 100644
+--- a/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Driver_Sql_Pdo_SqliteTest extends Nag_Unit_Driver_Sql_Base
  {
      protected $backupGlobals = false;
  
@@ -93,10 +112,10 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Driver/Sql/Pdo/SqliteTest.php
      {
          self::$callback = array(__CLASS__, 'getDb');
          parent::setUpBeforeClass();
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
+diff --git a/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php b/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
+index 0ff5ce7..9c1eb0d 100644
+--- a/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
 @@ -29,7 +29,7 @@
   */
  class Nag_Unit_Factory_TasklistsTest extends Nag_TestCase
@@ -106,11 +125,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Factory/TasklistsTest.php
      {
          parent::setUp();
          $setup = self::createKolabSetup();
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
-@@ -38,14 +38,14 @@ class Nag_Unit_Form_Task_Base extends Na
+diff --git a/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php b/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
+index accedad..c7cd39e 100644
+--- a/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
+@@ -38,14 +38,14 @@ class Nag_Unit_Form_Task_Base extends Nag_TestCase
  
      private $_old_errorreporting;
  
@@ -127,7 +146,7 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
      {
          parent::setUp();
  
-@@ -58,7 +58,7 @@ class Nag_Unit_Form_Task_Base extends Na
+@@ -58,7 +58,7 @@ class Nag_Unit_Form_Task_Base extends Nag_TestCase
          error_reporting(E_ALL & ~(E_STRICT | E_DEPRECATED));
      }
  
@@ -136,11 +155,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Base.php
      {
          error_reporting($this->_old_errorreporting);
          parent::tearDown();
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
-@@ -31,7 +31,7 @@ class Nag_Unit_Form_Task_KolabTest exten
+diff --git a/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php b/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
+index c812e44..42f85d0 100644
+--- a/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Form_Task_KolabTest extends Nag_Unit_Form_Task_Base
  {
      protected $backupGlobals = false;
  
@@ -149,10 +168,10 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/KolabTest.php
      {
          return;
  
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
+diff --git a/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php b/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
+index 0c544bf..bd0baae 100644
+--- a/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
 @@ -29,7 +29,7 @@
   */
  abstract class Nag_Unit_Form_Task_Sql_Base extends Nag_Unit_Form_Task_Base
@@ -162,11 +181,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Form/Task/Sql/Base.php
      {
          return;
  
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
-@@ -43,13 +43,13 @@ class Nag_Unit_Nag_Base extends Nag_Test
+diff --git a/nag-4.2.19/test/Nag/Unit/Nag/Base.php b/nag-4.2.19/test/Nag/Unit/Nag/Base.php
+index ed2d178..2234690 100644
+--- a/nag-4.2.19/test/Nag/Unit/Nag/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Nag/Base.php
+@@ -43,13 +43,13 @@ class Nag_Unit_Nag_Base extends Nag_TestCase
       */
      protected $default_name = 'Task list of test@example.com';
  
@@ -182,7 +201,7 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
      {
          parent::setUp();
          $error = self::$setup->getError();
-@@ -58,7 +58,7 @@ class Nag_Unit_Nag_Base extends Nag_Test
+@@ -58,7 +58,7 @@ class Nag_Unit_Nag_Base extends Nag_TestCase
          }
      }
  
@@ -191,11 +210,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Base.php
      {
          foreach ($GLOBALS['nag_shares']->listShares('test@example.com') as $share) {
              $GLOBALS['nag_shares']->removeShare($share);
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
-@@ -38,7 +38,7 @@ class Nag_Unit_Nag_KolabTest extends Nag
+diff --git a/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php b/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
+index 02e934a..256d834 100644
+--- a/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
+@@ -38,7 +38,7 @@ class Nag_Unit_Nag_KolabTest extends Nag_Unit_Nag_Base
       */
      protected $default_name = 'Tasks';
  
@@ -204,10 +223,10 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/KolabTest.php
      {
          self::$setup = new Horde_Test_Setup();
          parent::setUpBeforeClass();
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
+diff --git a/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php b/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
+index 0ce99b3..42067e6 100644
+--- a/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
++++ b/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
 @@ -29,7 +29,7 @@
   */
  class Nag_Unit_Nag_Sql_Base extends Nag_Unit_Nag_Base
@@ -217,11 +236,11 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Base.php
      {
          parent::setUpBeforeClass();
          self::createSqlShares(self::$setup);
-Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
-===================================================================
---- php-horde-nag.orig/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
-+++ php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
-@@ -31,7 +31,7 @@ class Nag_Unit_Nag_Sql_Pdo_SqliteTest ex
+diff --git a/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php b/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
+index 645ae16..fd54938 100644
+--- a/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
++++ b/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
+@@ -31,7 +31,7 @@ class Nag_Unit_Nag_Sql_Pdo_SqliteTest extends Nag_Unit_Nag_Sql_Base
  {
      protected $backupGlobals = false;
  
@@ -230,9 +249,10 @@ Index: php-horde-nag/nag-4.2.19/test/Nag/Unit/Nag/Sql/Pdo/SqliteTest.php
      {
          self::$setup = new Horde_Test_Setup();
          self::createSqlPdoSqlite(self::$setup);
-Index: php-horde-nag/nag-4.2.19/test/Nag/phpunit.xml
-===================================================================
+diff --git a/nag-4.2.19/test/Nag/phpunit.xml b/nag-4.2.19/test/Nag/phpunit.xml
+new file mode 100644
+index 0000000..5dcbab2
 --- /dev/null
-+++ php-horde-nag/nag-4.2.19/test/Nag/phpunit.xml
++++ b/nag-4.2.19/test/Nag/phpunit.xml
 @@ -0,0 +1 @@
 +<phpunit bootstrap="bootstrap.php"></phpunit>

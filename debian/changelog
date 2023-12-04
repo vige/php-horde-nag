@@ -1,3 +1,13 @@
+php-horde-nag (4.2.19-7~1.gbpf7625e) UNRELEASED; urgency=medium
+
+  ** SNAPSHOT build @f7625e9f7f0fe4679327bd055f19f9c88fb261e7 **
+
+  [ Mike Gabriel ]
+  * d/control: Bump Standards-Version: to 4.6.0. No changes needed.
+  * d/watch: Switch to format version 4.
+
+ -- Ville Nummela <ville@nummela.org>  Mon, 04 Dec 2023 13:11:41 +0200
+
 php-horde-nag (4.2.19-6) unstable; urgency=medium
 
   * Currently, all unit tests are ignored by upstream.
